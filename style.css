@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin-top: 5em;
+    font: 20px/1.5 "Helvetica", Arial, Sans-serif;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    /*overflow: hidden;이 없다면 옆에 삐친게 보인다*/
+    overflow: hidden;
+}
+
+
+/*각각 슬라이드의 내용이 다르기 떄문에 맞춰주기 위해 slide에 top: 50% 넣는다*/
+.slider-container{
+    position: absolute;
+    width: 100%;
+}
+
+/*슬라이드를 움직이기 위해서 ul을 움직인다*/
+.slide{
+    position: absolute;
+    width: 100%;
+    padding: 0 10%;
+    box-sizing: border-box;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* 이 class가 없다면 슬라이드가 넘어가는 애니메이션이 보이지 않는다. 그래서 3초엥 걸쳐서 느린 속도로 보여줘 */
+.slider-container.animated{
+    -webkit-transition: left .3s ease-in;
+    transition: left .3s ease-in;
+}
+
+blockquote{
+    color: black;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5em;
+}
+
+cite{
+    font-size: .75em;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.simple-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*양옆 버튼은 언제든지 그 슬라이드의 넓이에 따라서 이동할 수 있다.*/
+/*양옆 버튼을 고정하기 위해서는 이렇게 해야한다.*/
+
+
+
+/*좌우버튼*/
+#prev,
+#next{
+    position: absolute;
+    /*top에서 가운데로 두고, margin을 이용해서 가운데로 벌였다*/
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    z-index: 999999;
+    display: inline-block;
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
+
+#prev.disable, #next.disable {display: none;}
+
+#prev{background-image: url("IMG/l.png"); margin-left: -480px;}
+
+#prev:hover {background-image: url("IMG/l.png");}
+
+#next{
+    margin-left: 380px;
+    background-image: url("IMG/r.png");
+}
+
+#next:hover {background-image: url("IMG/r.png");}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

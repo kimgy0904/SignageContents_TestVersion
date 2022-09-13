@@ -1,0 +1,224 @@
+html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+.font {
+        font-family: 'yg-jalnan';
+        text-shadow: 2px 2px 0 #727272;
+    }
+
+    html {
+        font-family: 'yg-jalnan';
+    }
+
+    @font-face {
+        font-family: 'yg-jalnan';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    }
+
+    #HH{
+        width: 100%;
+        position: relative;
+        display: inline;
+        height: 1rem;
+    }
+
+
+    .time {
+        font-weight: bold;
+        font-size: 200px;
+    }
+
+    .date {
+        font-size: 200px;
+    }
+
+    .header {
+        line-height: 1.7rem;
+        background-color: black;
+        color: white;
+        font-family: none;
+        grid-template-rows: 1fr 1fr;
+        flex-direction: column;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        display: flex;
+    }
+
+
+.slide_wrap {
+    text-align: center;
+    position: relative;
+    width: 1024px;
+    padding-bottom: 30px;
+}
+    .slide_box {
+        width: 100%;
+        margin: auto;
+        overflow-x: hidden;
+    }
+    .slide_content{
+        display: table;
+        float: left;
+        overflow: hidden;
+        width: 1024px;
+        height: 1000px;
+        position: relative;
+    }
+
+    .slide_content img
+    {
+        position: absolute;
+        height: auto;
+        max-width:100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    /* 소셜 네트워크 영역 CSS */
+    .social{
+        /* 40px ÷ 320px */
+        background-color: black;
+        color: white;
+        position: relative;
+    }
+
+    /*footer의 테이블 설정*/
+    .table {
+        line-height: 30px;
+        top: 1rem;
+        font-size: 1rem;
+        text-align: center;
+        height: 20vh;
+        display: grid;
+        position: relative;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /*footer에 들어있는 중앙 라인*/
+    .line {
+        border-left: 0.15rem solid darkgrey;
+        border-right: 0.15rem solid darkgrey;
+    }
+
+    /*작품감상, 커뮤니티, 기능 페이지로 이동하는 GO 버튼*/
+    button {
+        background-color: deeppink;
+        color: white;
+        width: 3.5rem;
+        font-size: 1.1rem;
+        border-top-left-radius: 0.7rem;
+        border-top-right-radius: 0.7rem;
+        border-bottom-left-radius: 0.7rem;
+        border-bottom-right-radius: 0.7rem;
+    }
+
+    .table p{
+        top: 1rem;
+    }
+
+    .container{
+        height: 57rem;
+        text-align: center;
+    }
+
+    /*지역광고 폰트 색, 위치 지정*/
+    .ad {
+        position: relative;
+        top: 3rem;
+        line-height: 0.9rem;
+        text-align: center;
+        color: #7FFFD4;
+        font-size: 2.2rem;
+        -webkit-text-stroke: 2px black;
+        text-shadow: 2px 0 12px #FFFFE0;
+    }
+
+    .q {
+        font-size: 0.9rem;
+        color: white;
+        margin: 0px;
+        line-height: 1.7rem;
+        position: relative;
+        top: 2rem;
+        text-shadow: 2px 2px 2px #CD5C5C;
+    }
+
+    /*중앙 페이지 밑에 버튼 3개 */
+    .b1 {
+        bottom: 11rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        position: relative;
+        background: white;
+        border-top-left-radius: 70px;
+        border-top-right-radius: 70px;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+    }
+
+/* PC용 CSS */
+@media all and (min-width:960px){
+    .header{
+        height: 13vh;
+        background-color: black;
+        color: white;
+        font-family: none;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        line-height: 4.5rem;
+    }
+
+    .time{font-size: 4.5rem;}
+    .date{font-size: 2.5rem;}
+
+     /*지역광고 폰트 색, 위치 지정*/
+    .ad {
+        position: relative;
+        top: 7rem;
+        line-height: rem;
+        text-align: center;
+        color: #7FFFD4;
+        font-size: 4.5rem;
+        -webkit-text-stroke: 2px black;
+        text-shadow: 2px 0 12px #FFFFE0;
+    }
+
+    .q {
+        font-size: 2.2rem;
+        color: white;
+        margin: 0px;
+        line-height: 3.5rem;
+        position: relative;
+        top: 6.5rem;
+        text-shadow: 2px 2px 2px #CD5C5C;
+    }
+
+    .social{
+        height: 30vh;
+    }
+
+
+    button{
+        font-size: 2.3rem;
+        width: 12vw;
+        height: 4vh;
+    }
+
+    .table{
+        position: relative;
+        top: 4rem;
+        line-height: 5rem;
+    }
+
+    .table p{
+        font-size: 3rem;
+    }
+}

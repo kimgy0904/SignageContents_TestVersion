@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>사이니지 5번</title>
+    <link rel="stylesheet" href="page_5.css">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+</head>
+<body>
+
+<div id="wrap">
+    <div class="gallery_sction container">
+        <div class="slide_wrap">
+            <div class="slide_box">
+                <div class="slide_list">
+                <div class="slide_content" id="slide_0">
+                    <div id="GG"><img id="img_0">
+    <p class="this_place">이곳은</p>
+    <p class="park" style="color: deepskyblue">경상감영공원</p>
+    <p class="park" style="bottom: 20px; color: black">스마트 쉘터 입니다</p>
+    <p class="an">쉘터 내,<br><span>코로나 환기 규정</span> 준수 중!</p>
+                    </img>
+                    </div>
+                </div>
+
+            <div class="slide_content" id="slide_1"><img id="img_1"></img>
+            </div>
+
+            <div class="slide_content" id="slide_2"><img id="img_2"></img>
+            </div>
+            </div>
+                </div>
+        </div>
+
+        <img id="prev" src="LLLLLLLLLLLLLLLL.png">
+        <img id="next" src="RRRRRRRRRRRRR.png">
+
+        <button class="down_circle" id="B0"></button>
+        <button class="down_circle" id="B1"></button>
+        <button class="down_circle" id="B2"></button>
+    </div>
+
+    </section>
+    <section class="social_section">
+        <div><button class="big_B" id="button_a">작품 감상</button></div>
+        <p></p>
+        <div><button class="big_B" id="button_b">커뮤니티</button></div>
+    </section>
+</div>
+    <script>
+        var num = 0;
+        $(document).ready(function() {
+            $.ajax({
+                type: 'POST',
+                data: '',
+                dataType: 'html',
+                url: 'page_5.html',
+                success: function () {
+                    for (num = 0; num < slideLen; num++)
+                        document.getElementById('img_' + num).style.backgroundImage = 'url(IMG/slide_' + num + '.jpg)';
+                }
+            })
+        })
+</script>
+    <script src="05_script.js"></script>
+</body>
+</html>
