@@ -117,23 +117,3 @@ $Right_B.addEventListener('click', function (){
 $Side.addEventListener('click', function (){
     location.href = page2[2];
 })
-
-
-
-//=============망한 ajax=================
-// $(document).ready(function() {
-//     $.ajax({
-//         type: 'POST',
-//         data: '',
-//         dataType: 'html',
-//         url: 'page_3.html',
-//         success: function () {
-//             document.getElementById('slide_0').style.backgroundColor = 'hotpink';
-//             document.getElementById('slide_1').style.backgroundImage = "url('IMG/3_01.jpg')";
-//             document.getElementById('slide_2').style.backgroundImage = "url('IMG/3_02.jpg')";
-//         }
-//     })
-// });
-
-
-// 첫번째 슬라이드 먼저 보이도록 하기
