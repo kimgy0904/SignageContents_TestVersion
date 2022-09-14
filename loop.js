@@ -79,21 +79,3 @@ $Right_B.addEventListener('click', function (){
 
 
 
-//=============망한 ajax=================
-// 예전에 구현했던 ajax 비동기 통신 망한버전
-// 이 ajax 비동기 통신을 사용할시 cloneNode가 적용되지 않는다.
-
-// let num = 0;
-// $.ajax({
-//                 type: 'POST',
-//                 data: '',
-//                 dataType: 'html',
-//                 url: 'page_5_loop.html',
-//                 success: function () {
-//                     for (num = 0; num < slideLen; num++){
-//                         document.getElementById("slide_" + num).src = "venv/IMG/0" + num + ".jpg";
-//                     }
-//                 }
-//
-//             })
-
