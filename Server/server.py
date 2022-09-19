@@ -3,21 +3,29 @@ import json
 import pickle
 import websockets  # 클라이언트 접속이 되면 호출된다.
 
-async def accept(websocket, path):
-    print('accepted', websocket.origin)
-    # rosl = rosLoader(websocket)
-    while True:
-        # await rosl.getbagfile()
-        data = await websocket.recv()  # 클라이언트로부터 메시지를 대기한다.
-        print('msg called')
-        # await asyncio.sleep(0.5)
-        # data_string = json.dumps([100,101,102])
-        # print(data_string)
-        # await websocket.send(data)  # 클라인언트로 echo를 붙여서 재 전송한다.
+from advertiser import Advertiser
 
+
+async def accept(websocket, path):
+    print('accepted', websocket.origin, websocket.id)
+    while True:
+        data = await websocket.recv()  # 클라이언트로부터 메시지를 대기한다.
+        recvdata = json.loads(data)
+        recvMsg = int(recvdata['message'])
+
+        #if you receive '0' data from client once, add client socket into Advertiser client list
+        if recvMsg == 0: #advertise mode ready to client
+            await adv.addClient(websocket)
+            await adv.printClients()
+        else:
+            print("Wrong Messages",data)
+
+adv = Advertiser()
 
 async def main():
+    await adv.init_adv()
     async with websockets.serve(accept, "localhost", 5000):
         await asyncio.Future()
+
 
 asyncio.run(main())
