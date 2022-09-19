@@ -1,5 +1,6 @@
 import asyncio
 import json
+import random
 
 
 class Advertiser:
@@ -24,14 +25,14 @@ class Advertiser:
 
     async def runAdvertiser(self):
         cnt = 0
+        piclist = ['1.jpg','2.jpg','3.jpg','4.jpg']
         while True:
             for idx, cli in enumerate(self.clients.values()):
                 #여기에 사진 링크 보내면 될듯
-                data = [idx, cnt, 2]
+                data = [idx, random.choice(piclist), 2]
                 data_string = json.dumps(data)
                 await cli.send(data_string)
-                print(idx, cli.origin, 'data sended', data_string)
+                #print(idx, cli.origin, 'data sended', data_string)
             cnt += 1
-            print()
             #1초 주기로 데이터 변경됨 -> 주기 변경 가능
             await asyncio.sleep(1)
