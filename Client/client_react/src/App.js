@@ -13,6 +13,7 @@ function App() {
   let ws = useRef(null);
 
   const connectServer = () => {
+    
     setOutputs('connecting server...');
     if(!ws.current){
       ws.current = new WebSocket(addr);
