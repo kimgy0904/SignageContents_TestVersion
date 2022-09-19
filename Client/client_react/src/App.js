@@ -31,7 +31,7 @@ function App() {
       ws.current.onmessage = (evt) => {
         const data = JSON.parse(evt.data);
         console.log(data);
-        setOutputs((prevItems) => [data[1]]);
+        setOutputs((prevItems) => [data[2]]);
         //setOutputs((prevItems) => [data['message']]); //single message
         //setItems((prevItems) => [data]);
       };
