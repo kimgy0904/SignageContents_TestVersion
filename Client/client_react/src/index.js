@@ -13,6 +13,7 @@ root.render(
       <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
       {/*<App />*/}
       <SimpleSlider/>
+      
   </React.StrictMode>
 );
 
