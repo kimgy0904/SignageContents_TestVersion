@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-//import {SimpleSlider} from './App.js';
+import App from './App';
+import SimpleSlider from "./component/SimpleSlider";
 import reportWebVitals from './reportWebVitals';
-import SimpleSlider from "./App";
+import ClockContainer from './component/header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <SimpleSlider />
+      <ClockContainer/>
+      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+      {/*<App />*/}
+      <SimpleSlider/>
   </React.StrictMode>
 );
 
