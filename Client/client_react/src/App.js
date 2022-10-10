@@ -1,7 +1,8 @@
-import React, {useRef, useState, Component} from "react";
+// Signage 3 번 App.js
+
+import React, {useRef, useState, Component, useEffect} from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SimpleSlider from './component/SimpleSlider';
 
 function App() {
   const addr = "ws://localhost:5000";
@@ -54,10 +55,13 @@ function App() {
     }
   }
 
+
+
   return (
       <div>
         <div>
         <input value={inputs}/>
+          {/*connect버튼 클릭시 connectServer 함수 실행 */}
         <button onClick={connectServer}>connect</button>
       </div>
         <div>

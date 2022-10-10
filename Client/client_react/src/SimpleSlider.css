@@ -1,0 +1,130 @@
+/*Signage 3 slide*/
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 100%;
+    width: 100%;
+}
+
+
+/*time, date*/
+.header{
+    padding-top: 2rem;
+    background-color: black;
+    color: white;
+    height: 9rem;
+}
+
+.date{
+    font-size: 1.8rem;
+}
+
+.time{
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 2.8rem;
+}
+
+/*slider*/
+Slider{
+    overflow-x: hidden;
+    overflow: hidden;
+}
+
+/*slide height*/
+.slick-track{
+    height: 57rem;
+}
+
+/*하단에 버튼 옆옆 라인*/
+.line {
+    border-left: 2px solid darkgrey;
+    border-right: 2px solid darkgrey;
+}
+
+.social > button,
+.social > p{
+    display:table-cell;
+    vertical-align:middle;
+    width: 400px;
+}
+
+
+/*맨 맽에 버튼을 포괄적으로 감싸고있는*/
+.social {
+    display:grid;
+    font-family: 'yg-jalnan';
+    background-color: black;
+    color: white;
+    top: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    height: 20vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    line-height: 5rem;
+}
+
+/*hotpink button*/
+button{
+    background-color: deeppink;
+    color: white;
+    width: 5rem;
+    font-size: 2.2rem;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+
+
+.QR{
+    background-color: white;
+    color: black;
+
+}
+
+Slider > img{
+    width: 100%;
+    height: 100%;
+}
+
+/*slide dots*/
+.slick-dots.slick-thumb {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 48rem;
+}
+
+.slick-dots.slick-thumb li div {
+    width: 20px;
+    height: 20px;
+    margin: 0 3px;
+    border-radius: 999px;
+    transition: all 0.5s ease-in-out;
+    will-change: width;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.slick-dots.slick-thumb li.slick-active div{
+    background-color: black;
+}
+
+.font {
+    font-family: 'yg-jalnan';
+    text-shadow: 2px 2px 0 #727272;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+}
