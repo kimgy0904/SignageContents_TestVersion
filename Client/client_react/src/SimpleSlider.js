@@ -7,6 +7,7 @@ import './SimpleSlider.css';
 function SimpleSlider() {
     const addr = "ws://localhost:5000";
     const [outputs, setOutputs] = useState([]);
+    // const [slidetime, setSlidetime] = useState(500);
     const [img, setImg] = useState([0, 1, 2]);
     const [socketConnected, setSocketConnected] = useState(false);
 
@@ -42,6 +43,7 @@ function SimpleSlider() {
                 setImg[0] = data[0];
                 setImg[1] = data[1];
                 setImg[2] = data[2];
+
                 setOutputs((prevItems) => data);
             };
         };
@@ -51,18 +53,33 @@ function SimpleSlider() {
     });
     const settings = {
         slide: 'div',
-        dots: true,
         infinite: true,
+        arrows: true,
+        // slideCount: {slidetime},
         slidesToShow: 1,
-        slidesToScroll: 1,
-        dotsClass: "slick-dots slick-thumb"
+        slidesToScroll: 1
     };
+
     return (
         <div>
             <Slider {...settings}>
-                <div><img src={setImg[0]}/></div>
-                <div><img src={setImg[1]}/></div>
-                <div><img src={setImg[2]}/></div>
+                <div>
+                    <img src={setImg[0]}/>
+                    {/*<iframe src={setImg[0]} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/>*/}
+                    <div className="button_div">
+                        <button id="skipButton">Skip</button>
+                        <div></div>
+                        <button id="qrButton">상세보기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src={setImg[1]}/>
+                    {/*<iframe src={setImg[1]} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/>*/}
+                </div>
+                <div>
+                    <img src={setImg[2]}/>
+                    {/*<iframe src={setImg[2]} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/>*/}
+                </div>
             </Slider>
             <div className="social">
                 <p>작품선택<br/><button>GO</button></p>

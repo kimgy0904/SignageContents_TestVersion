@@ -65,9 +65,9 @@ export default class App extends Component {
                     <div>3</div>
                 </Slider>
                 <div className="buttonDiv">
-                    <div>작품 감상</div>
+                    <div>작품 선택</div>
                     <p></p>
-                    <div>커뮤니티</div>
+                    <div>게시판</div>
                 </div>
 
             </div>
