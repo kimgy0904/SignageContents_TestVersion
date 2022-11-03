@@ -4,6 +4,7 @@ import './index.css';
 import SimpleSlider from "./SimpleSlider";
 import reportWebVitals from './reportWebVitals';
 import ClockContainer from './header';
+import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,6 +12,9 @@ root.render(
       <ClockContainer/>
       <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
       <SimpleSlider/>
+      <Link to="../board/src/App">
+          <button>BOARD</button>
+      </Link>
   </React.StrictMode>
 );
 

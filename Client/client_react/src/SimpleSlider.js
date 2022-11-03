@@ -7,7 +7,6 @@ import './SimpleSlider.css';
 function SimpleSlider() {
     const addr = "ws://localhost:5000";
     const [outputs, setOutputs] = useState([]);
-    // const [slidetime, setSlidetime] = useState(500);
     const [img, setImg] = useState([0, 1, 2]);
     const [socketConnected, setSocketConnected] = useState(false);
 
@@ -54,12 +53,10 @@ function SimpleSlider() {
     const settings = {
         slide: 'div',
         infinite: true,
-        arrows: true,
-        // slideCount: {slidetime},
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        arrow: false
     };
-
     return (
         <div>
             <Slider {...settings}>
@@ -67,9 +64,9 @@ function SimpleSlider() {
                     <img src={setImg[0]}/>
                     {/*<iframe src={setImg[0]} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/>*/}
                     <div className="button_div">
-                        <button id="skipButton">Skip</button>
-                        <div></div>
-                        <button id="qrButton">상세보기</button>
+                        {/*<button id="skipButton">Skip</button>*/}
+                        {/*<div></div>*/}
+                        {/*<button id="qrButton">상세보기</button>*/}
                     </div>
                 </div>
                 <div>
@@ -84,7 +81,7 @@ function SimpleSlider() {
             <div className="social">
                 <p>작품선택<br/><button>GO</button></p>
                 <p className="line">게시판<br/><button>GO</button></p>
-                <p>기능<br/><button>GO</button></p>
+                {/*<p>기능<br/><button>GO</button></p>*/}
             </div>
         </div>
     );

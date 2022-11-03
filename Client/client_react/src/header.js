@@ -20,7 +20,7 @@ function ClockContainer() {
             <div className="date">
                 {time.format('YYYY-MM-DD')}
             </div>
-            <div className="time"> {time.format('HH:mma')}</div>
+            <div className="time">21:00pm</div>
         </div>
     );
 }

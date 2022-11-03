@@ -51,7 +51,6 @@ body {
 }
 
 
-
 /*slider*/
 Slider{
     overflow-x: hidden;
@@ -60,13 +59,21 @@ Slider{
 
 /*slide height*/
 .slick-track{
-    height: 57rem;
+    overflow: hidden;
+}
+
+img{
+    object-fit: fill;
+    height: 30rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*하단에 버튼 옆옆 라인*/
 .line {
     border-left: 2px solid darkgrey;
-    border-right: 2px solid darkgrey;
+    /*border-right: 2px solid darkgrey;*/
 }
 
 .social > button,
@@ -87,7 +94,7 @@ Slider{
     font-size: 3rem;
     text-align: center;
     height: 30%;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     line-height: 5rem;
 }
 
@@ -103,10 +110,6 @@ Slider{
     border-bottom-right-radius: 0.4rem;
 }
 
-Slider > img{
-    width: 100%;
-    height: 100%;
-}
 
 
 .font {
