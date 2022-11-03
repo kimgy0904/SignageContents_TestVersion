@@ -1,8 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
-import './App.css'
 import {isVisible} from "@testing-library/user-event/dist/utils";
 
-const App = () => {
+const Counter = () => {
+    const isIdleOpen = () => {
+        if(setTimer() == '00:00:00'){
+            isVisible(false);
+        }
+    }
 
     // We need ref in this, because we are dealing
     // with JS setInterval to keep track of it and
@@ -93,4 +97,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default Counter;
