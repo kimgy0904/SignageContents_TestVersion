@@ -18,7 +18,7 @@ async def accept(websocket, path):
             await adv.addClient(websocket)
             await adv.printClients()
         else:
-            print("Wrong Messages", data)
+            print("Wrong Messages",data)
 
 adv = Advertiser()
 
