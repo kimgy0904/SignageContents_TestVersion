@@ -68,7 +68,7 @@ const Counter = () => {
         // This is where you need to adjust if
         // you entend to add more time
         //300 = 5분
-        deadline.setSeconds(deadline.getSeconds() + 10);
+        deadline.setSeconds(deadline.getSeconds() + 300);
         return deadline;
     }
 

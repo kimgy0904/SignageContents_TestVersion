@@ -2,9 +2,9 @@ import Slider from "react-slick";
 import React, {useRef, useState, useEffect} from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './SimpleSlider.css';
+import './style/IDLE_page_3.css';
 
-function SimpleSlider() {
+function IDLE_page_3() {
     const addr = "ws://localhost:5000";
     const [outputs, setOutputs] = useState([]);
     const [img, setImg] = useState([0, 1, 2]);
@@ -88,4 +88,4 @@ function SimpleSlider() {
 }
 
 
-export default SimpleSlider
+export default IDLE_page_3

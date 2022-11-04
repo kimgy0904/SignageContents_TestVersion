@@ -20,7 +20,8 @@ function ClockContainer() {
             <div className="date">
                 {time.format('YYYY-MM-DD')}
             </div>
-            <div className="time">21:00pm</div>
+            {/* LT=4:50 , LTS=4:50:21 */}
+            <div className="time">{time.format('LT')}</div>
         </div>
     );
 }

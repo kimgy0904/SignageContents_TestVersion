@@ -1,9 +1,9 @@
 // signage 4 app.js
 
-import '../style/signage_4.css';
+import '../style/IDLE_page_4.css';
 import {useEffect, useRef, useState} from "react";
 
-function signage_4() {
+function IDLE_page_4() {
     const addr = "ws://localhost:5000";
     const [outputs, setOutputs] = useState([]);
     const [img, setImg] = useState([0, 1, 2, 3, 4]);
@@ -94,4 +94,4 @@ function signage_4() {
     );
 }
 
-export default signage_4;
+export default IDLE_page_4;

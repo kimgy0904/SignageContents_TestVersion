@@ -4,11 +4,9 @@ import Slider from "react-slick";
 import React, {useEffect, useRef, useState} from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../style/signage_5.css";
+import "../style/IDLE_page_5.css";
 
-
-
-function signage_5() {
+function IDLE_page_5() {
     const addr = "ws://localhost:5000";
     const [outputs, setOutputs] = useState([]);
     const [img, setImg] = useState([0, 1, 2]);
@@ -105,4 +103,4 @@ function signage_5() {
     );
 }
 
-export default signage_5
+export default IDLE_page_5
