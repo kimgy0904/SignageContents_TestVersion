@@ -1,23 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import SimpleSlider from "./SimpleSlider";
 import reportWebVitals from './reportWebVitals';
-import ClockContainer from './header';
-import { Link, Route, BrowserRouter as Router } from "react-router-dom";
-import Counter from "./counter";
-
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Counter/>
-      <ClockContainer/>
-      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-      <SimpleSlider/>
-      <Link>
-          <button>BOARD</button>
-      </Link>
+    <App/>
   </React.StrictMode>
 );
 

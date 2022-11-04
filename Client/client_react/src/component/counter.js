@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react'
 import {isVisible} from "@testing-library/user-event/dist/utils";
 
 const Counter = () => {
-    const isIdleOpen = () => {
+    const MoveIDLE = () => {
         if(setTimer() == '00:00:00'){
-            isVisible(false);
+
         }
     }
 
@@ -16,9 +16,8 @@ const Counter = () => {
     // The state for our timer
     const [timer, setTimer] = useState('00:00:00');
 
-
     const getTimeRemaining = (e) => {
-        isIdleOpen();
+        MoveIDLE();
         const total = Date.parse(e) - Date.parse(new Date());
         const seconds = Math.floor((total / 1000) % 60);
         const minutes = Math.floor((total / 1000 / 60) % 60);
@@ -27,7 +26,6 @@ const Counter = () => {
             total, hours, minutes, seconds
         };
     }
-
 
     const startTimer = (e) => {
         let { total, hours, minutes, seconds }
@@ -43,7 +41,6 @@ const Counter = () => {
             )
         }
     }
-
 
     const clearTimer = (e) => {
 
@@ -89,8 +86,10 @@ const Counter = () => {
         clearTimer(getDeadTime());
     }
 
+
+
     return (
-        <div className="App">
+        <div>
             <h2>{timer}</h2>
             <button onClick={onClickReset}>Reset</button>
         </div>

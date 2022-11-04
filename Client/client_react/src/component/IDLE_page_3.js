@@ -2,7 +2,9 @@ import Slider from "react-slick";
 import React, {useRef, useState, useEffect} from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './style/IDLE_page_3.css';
+import '../style/IDLE_page_3.css';
+import Header from "./header";
+
 
 function IDLE_page_3() {
     const addr = "ws://localhost:5000";
@@ -59,6 +61,7 @@ function IDLE_page_3() {
     };
     return (
         <div>
+            <Header/>
             <Slider {...settings}>
                 <div>
                     <img src={setImg[0]}/>

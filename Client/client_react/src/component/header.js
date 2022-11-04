@@ -3,7 +3,7 @@
 import React, {useEffect, useState} from "react";
 import moment from "moment/moment";
 
-function ClockContainer() {
+function Header() {
     let timer = null;
     const [time, setTime] = useState(moment());
     useEffect(() => {
@@ -26,4 +26,4 @@ function ClockContainer() {
     );
 }
 
-export default ClockContainer;
+export default Header;
