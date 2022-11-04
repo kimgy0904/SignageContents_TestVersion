@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import IDLE_page_3 from "./component/IDLE_page_3";
 import BOARD_page from "./component/BOARD_page";
 
+
 function App() {
     return(
         <div>
