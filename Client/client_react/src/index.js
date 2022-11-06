@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from "./App";
+import {Route, Routes, BrowserRouter as Router, BrowserRouter} from "react-router-dom";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App/>
+      <meta name="viewport" content="width=device-width" />
+      <App/>
   </React.StrictMode>
 );
 

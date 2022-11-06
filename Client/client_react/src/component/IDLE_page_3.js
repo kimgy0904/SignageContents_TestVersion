@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import '../style/IDLE_page_3.css';
 import Header from "./header";
 
-
 function IDLE_page_3() {
     const addr = "ws://localhost:5000";
     const [outputs, setOutputs] = useState([]);
@@ -82,9 +81,12 @@ function IDLE_page_3() {
                 </div>
             </Slider>
             <div className="social">
-                <p>작품선택<br/><button>GO</button></p>
-                <p className="line">게시판<br/><button>GO</button></p>
-                {/*<p>기능<br/><button>GO</button></p>*/}
+                <p>작품선택<br/>
+                    <button>GO</button>
+                </p>
+                <p className="line">게시판<br/>
+                    <button>GO</button>
+                </p>
             </div>
         </div>
     );

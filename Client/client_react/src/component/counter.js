@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
-import {isVisible} from "@testing-library/user-event/dist/utils";
 
 const Counter = () => {
-    const MoveIDLE = () => {
-        if(setTimer() == '00:00:00'){
 
+    const[text, setText] = useState("START");
+
+    const MoveIDLE = () => {
+        if(setTimer() == '00:00'){
+            setText("Move IDLE page");
         }
     }
 
@@ -14,16 +16,15 @@ const Counter = () => {
     const Ref = useRef(null);
 
     // The state for our timer
-    const [timer, setTimer] = useState('00:00:00');
+    const [timer, setTimer] = useState('00:00');
 
     const getTimeRemaining = (e) => {
         MoveIDLE();
         const total = Date.parse(e) - Date.parse(new Date());
         const seconds = Math.floor((total / 1000) % 60);
         const minutes = Math.floor((total / 1000 / 60) % 60);
-        const hours = Math.floor((total / 1000 / 60 / 60) % 24);
         return {
-            total, hours, minutes, seconds
+            total, minutes, seconds
         };
     }
 
@@ -35,7 +36,6 @@ const Counter = () => {
             // check if less than 10 then we need to
             // add '0' at the beginning of the variable
             setTimer(
-                (hours > 9 ? hours : '0' + hours) + ':' +
                 (minutes > 9 ? minutes : '0' + minutes) + ':'
                 + (seconds > 9 ? seconds : '0' + seconds)
             )
@@ -47,7 +47,7 @@ const Counter = () => {
         // If you adjust it you should also need to
         // adjust the Endtime formula we are about
         // to code next
-        setTimer('00:05:00');
+        setTimer('05:00');
 
         //clearInterval = 변수 초기화
 
@@ -82,16 +82,15 @@ const Counter = () => {
     // the countdown is via action event from the
     // button first we create function to be called
     // by the button
-    const onClickReset = () => {
+    const TimerReset = (e) => {
+        setText("Timer Reset");
         clearTimer(getDeadTime());
     }
 
-
-
     return (
-        <div>
+        <div onTouchStart={TimerReset}>
             <h2>{timer}</h2>
-            <button onClick={onClickReset}>Reset</button>
+            <p>{text}</p>
         </div>
     )
 }
