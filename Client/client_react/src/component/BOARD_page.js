@@ -5,8 +5,8 @@ const BOARD_page = () => {
 
     return(
         <div>
-            <Counter/>
             <p>게시판</p>
+            <Counter/>
         </div>
     );
 }

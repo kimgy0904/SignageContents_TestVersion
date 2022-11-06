@@ -5,7 +5,7 @@ const Counter = () => {
     const[text, setText] = useState("START");
 
     const MoveIDLE = () => {
-        if(setTimer() == '00:00'){
+        if(setTimer()){
             setText("Move IDLE page");
         }
     }
@@ -50,7 +50,6 @@ const Counter = () => {
         setTimer('05:00');
 
         //clearInterval = 변수 초기화
-
         if (Ref.current) clearInterval(Ref.current);
 
         const id = setInterval(() => {
@@ -65,7 +64,7 @@ const Counter = () => {
         // This is where you need to adjust if
         // you entend to add more time
         //300 = 5분
-        deadline.setSeconds(deadline.getSeconds() + 300);
+        deadline.setSeconds(deadline.getSeconds() + 30);
         return deadline;
     }
 
@@ -82,7 +81,7 @@ const Counter = () => {
     // the countdown is via action event from the
     // button first we create function to be called
     // by the button
-    const TimerReset = (e) => {
+    const TimerReset = () => {
         setText("Timer Reset");
         clearTimer(getDeadTime());
     }
