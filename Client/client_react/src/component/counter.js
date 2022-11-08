@@ -29,7 +29,7 @@ const Counter = () => {
     }
 
     const startTimer = (e) => {
-        let { total, hours, minutes, seconds }
+        let { total, minutes, seconds }
             = getTimeRemaining(e);
         if (total >= 0) {
             // update the timer
@@ -42,11 +42,10 @@ const Counter = () => {
         }
     }
 
+    // 이 기능은 타이머를 재설정하는 데 사용됩니다.
+    // 즉, 타이머를 다시 시작하면 이전 카운트다운에서 남은 시간이 지워짐
+    // 그렇지 않으면,
     const clearTimer = (e) => {
-
-        // If you adjust it you should also need to
-        // adjust the Endtime formula we are about
-        // to code next
         setTimer('05:00');
 
         //clearInterval = 변수 초기화
@@ -58,32 +57,23 @@ const Counter = () => {
         Ref.current = id;
     }
 
+    // 타이머의 기한 제공, 카운트다운 시작하려는 시점부터 시간 제공
+    // 연장하려면 시간 추가
     const getDeadTime = () => {
         let deadline = new Date();
-
-        // This is where you need to adjust if
-        // you entend to add more time
         //300 = 5분
         deadline.setSeconds(deadline.getSeconds() + 30);
         return deadline;
     }
 
-    // We can use useEffect so that when the component
-    // mount the timer will start as soon as possible
-
-    // We put empty array to act as componentDid
-    // mount only
     useEffect(() => {
         clearTimer(getDeadTime());
     }, []);
 
-    // Another way to call the clearTimer() to start
-    // the countdown is via action event from the
-    // button first we create function to be called
-    // by the button
+    // 타이머 리셋
     const TimerReset = () => {
-        setText("Timer Reset");
         clearTimer(getDeadTime());
+        setText("Timer Reset");
     }
 
     return (

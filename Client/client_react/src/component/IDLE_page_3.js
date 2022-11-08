@@ -80,14 +80,6 @@ function IDLE_page_3() {
                     {/*<iframe src={setImg[2]} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/>*/}
                 </div>
             </Slider>
-            <div className="social">
-                <p>작품선택<br/>
-                    <button>GO</button>
-                </p>
-                <p className="line">게시판<br/>
-                    <button>GO</button>
-                </p>
-            </div>
         </div>
     );
 }

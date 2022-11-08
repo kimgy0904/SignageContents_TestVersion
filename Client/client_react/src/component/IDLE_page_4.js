@@ -86,10 +86,6 @@ function IDLE_page_4() {
 
                 </div>
             </section>
-            <footer>
-                <button className="btn_a">작품 보러가기</button>
-                <button className="btn_b">커뮤니티</button>
-            </footer>
         </>
     );
 }

@@ -93,12 +93,6 @@ function IDLE_page_5() {
                 <img src={setImg[1]}/>
                 <img src={setImg[2]}/>
             </Slider>
-            <div className="buttonDiv">
-                <div>작품 선택</div>
-                <p></p>
-                <div>게시판</div>
-            </div>
-
         </div>
     );
 }
