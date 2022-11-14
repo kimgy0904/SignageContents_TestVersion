@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../style/IDLE_page_3.css';
 import Header from "./header";
+import BOARD_page from "./BOARD_page";
+import SELECT_page from "./SELECT_page";
 
 function IDLE_page_3() {
     const addr = "ws://localhost:5000";
@@ -80,6 +82,14 @@ function IDLE_page_3() {
                     {/*<iframe src={setImg[2]} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/>*/}
                 </div>
             </Slider>
+            <div className="social">
+                <p>작품선택<br/>
+                    <button onClick={SELECT_page}>GO</button>
+                </p>
+                <p className="line">게시판<br/>
+                    <button onClick={BOARD_page}>GO</button>
+                </p>
+            </div>
         </div>
     );
 }

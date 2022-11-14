@@ -2,11 +2,13 @@
 
 import '../style/IDLE_page_4.css';
 import {useEffect, useRef, useState} from "react";
+import BOARD_page from "./BOARD_page";
+import SELECT_page from "./SELECT_page";
 
 function IDLE_page_4() {
     const addr = "ws://localhost:5000";
     const [outputs, setOutputs] = useState([]);
-    const [img, setImg] = useState([0, 1, 2, 3, 4]);
+    const [img, setImg] = useState([0, 1, 2, 3, 4, 5]);
     const [socketConnected, setSocketConnected] = useState(false);
 
     let ws = useRef(null);
@@ -53,14 +55,12 @@ function IDLE_page_4() {
         connectServer();
     });
     return (
-        <>
+        <div>
             <header>
                 <div className="h1">사이니지 이용방법</div>
             </header>
             <section className="gallery">
                 <div className="h2">쉘터 사이니지를 100% 활용할 수 있는 방법</div>
-
-
                 <div>
                     <div className="h4">콘텐츠 이용방법</div>
                     <div className="STEP"><td>STEP1</td><td>STEP2</td><td>STEP3</td></div>
@@ -86,7 +86,11 @@ function IDLE_page_4() {
 
                 </div>
             </section>
-        </>
+            <footer>
+                <button onClick={SELECT_page} className="btn_a">작품 보러가기</button>
+                <button onClick={BOARD_page} className="btn_b">커뮤니티</button>
+            </footer>
+        </div>
     );
 }
 

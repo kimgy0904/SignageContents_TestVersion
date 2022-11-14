@@ -2,24 +2,12 @@ import React, { useState, useRef, useEffect } from 'react'
 
 const Counter = () => {
 
-    const[text, setText] = useState("START");
-
-    const MoveIDLE = () => {
-        if(setTimer()){
-            setText("Move IDLE page");
-        }
-    }
-
-    // We need ref in this, because we are dealing
-    // with JS setInterval to keep track of it and
-    // stop it when needed
     const Ref = useRef(null);
-
+    const[text, setText] = useState("START");
     // The state for our timer
     const [timer, setTimer] = useState('00:00');
 
-    const getTimeRemaining = (e) => {
-        MoveIDLE();
+     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
         const seconds = Math.floor((total / 1000) % 60);
         const minutes = Math.floor((total / 1000 / 60) % 60);
@@ -28,7 +16,8 @@ const Counter = () => {
         };
     }
 
-    const startTimer = (e) => {
+     const startTimer = (e) => {
+         setText("start");
         let { total, minutes, seconds }
             = getTimeRemaining(e);
         if (total >= 0) {
@@ -45,7 +34,7 @@ const Counter = () => {
     // 이 기능은 타이머를 재설정하는 데 사용됩니다.
     // 즉, 타이머를 다시 시작하면 이전 카운트다운에서 남은 시간이 지워짐
     // 그렇지 않으면,
-    const clearTimer = (e) => {
+     const clearTimer = (e) => {
         setTimer('05:00');
 
         //clearInterval = 변수 초기화
@@ -59,10 +48,10 @@ const Counter = () => {
 
     // 타이머의 기한 제공, 카운트다운 시작하려는 시점부터 시간 제공
     // 연장하려면 시간 추가
-    const getDeadTime = () => {
+     const getDeadTime = () => {
         let deadline = new Date();
         //300 = 5분
-        deadline.setSeconds(deadline.getSeconds() + 30);
+        deadline.setSeconds(deadline.getSeconds() + 300);
         return deadline;
     }
 
@@ -71,17 +60,22 @@ const Counter = () => {
     }, []);
 
     // 타이머 리셋
-    const TimerReset = () => {
+     const TimerReset = () => {
+         setText("Timer Reset");
         clearTimer(getDeadTime());
-        setText("Timer Reset");
     }
 
-    return (
-        <div onTouchStart={TimerReset}>
-            <h2>{timer}</h2>
-            <p>{text}</p>
+    return(
+        <div onClick={TimerReset}
+             style={{fontSize : '3rem'}}>
+            <div style={{backgroundColor : 'black', fontSize : '3rem',
+                fontFamily: 'yg-jalnan', color : 'white'}}>
+                {timer}
+                <br/>
+                {text}
+            </div>
         </div>
-    )
+    );
 }
 
-export default Counter;
+export default Counter

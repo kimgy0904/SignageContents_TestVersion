@@ -70,6 +70,46 @@ img{
     margin-right: auto;
 }
 
+/*하단에 버튼 옆옆 라인*/
+.line {
+    border-left: 2px solid darkgrey;
+    /*border-right: 2px solid darkgrey;*/
+}
+
+.social > button,
+.social > p{
+    display:table-cell;
+    vertical-align:middle;
+    width: 100%;
+}
+
+
+/*맨 맽에 버튼을 포괄적으로 감싸고있는*/
+.social {
+    display:grid;
+    font-family: 'yg-jalnan';
+    background-color: black;
+    color: white;
+    top: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    height: 30%;
+    grid-template-columns: 1fr 1fr;
+    line-height: 5rem;
+}
+
+/*hotpink button*/
+.social button{
+    background-color: deeppink;
+    color: white;
+    width: 5rem;
+    font-size: 2.2rem;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+
 
 .font {
     font-family: 'yg-jalnan';
