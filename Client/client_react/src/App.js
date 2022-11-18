@@ -1,18 +1,19 @@
-// timer 설정 후 여러 페이지 visible, uunvisible
-import React, {useRef, useState, Component, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, {useRef, useState, useEffect } from "react";
+import {Routes, Route, Link} from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './App.css';
 import IDLE_page_3 from "./component/IDLE_page_3";
-import IDLE_page_4 from "./component/IDLE_page_4";
 import IDLE_page_5 from "./component/IDLE_page_5";
+import IDLE_page_4 from "./component/IDLE_page_4";
+import BOARD_page from "./component/BOARD_page";
+import SELECT_page from "./component/SELECT_page";
 
 const App = () => {
 
+    //5분 타이머
     const Ref = useRef(null);
     const[text, setText] = useState("START");
-    // The state for our timer
     const [timer, setTimer] = useState('00:00');
 
     const getTimeRemaining = (e) => {
@@ -72,26 +73,32 @@ const App = () => {
         setText("Timer Reset");
         clearTimer(getDeadTime());
     }
-    const [idle, setIdle] = useState([IDLE_page_5, IDLE_page_4, IDLE_page_3]);
-
-    setInterval( (idle) => ( setIdle(Math.random * 3) ), 30000);
 
     return(
-        <div onClick={TimerReset}
-             style={{fontSize : '3rem'}}>
+    <div>
+        <div onClick={TimerReset} style={{fontSize : '3rem'}}>
+            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
             <div style={{backgroundColor : 'black', fontSize : '3rem',
                 fontFamily: 'yg-jalnan', color : 'white'}}>
                 {timer}
                 <br/>
                 {text}
             </div>
-            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
-                <Routes>
-                    <Route path='/' element={<IDLE_page_3/>}></Route>
-                </Routes>
+            <Link to="/">move page3</Link><br/>
+            <Link to="/page4">move page4</Link><br/>
+            <Link to="/page4">move page5</Link>
+        <Routes>
+            <Route path="/" element={<IDLE_page_3/>}/>
+            <Route path="/page4" element={<IDLE_page_4 />} />
+            <Route path="/page5" element={<IDLE_page_5 />} />
+            <Route path='/board' element={<BOARD_page/>}/>
+            <Route path='/select' element={<SELECT_page />} />
+        </Routes>
         </div>
+    </div>
     );
+
 }
 
 
