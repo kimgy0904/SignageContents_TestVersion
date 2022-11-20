@@ -1,11 +1,13 @@
 import React, {useRef, useState, useEffect} from "react";
-import {Routes, Route, Link, useNavigate} from 'react-router-dom';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './App.css';
 import IDLE_page_5 from "./component/IDLE_page_5";
 import IDLE_page_3 from "./component/IDLE_page_3";
 import IDLE_page_4 from "./component/IDLE_page_4";
+import BOARD_page from "./component/BOARD_page";
+import SELECT_page from "./component/SELECT_page";
 
 function App({match}){
     //5분 타이머
@@ -68,21 +70,26 @@ function App({match}){
     // 이벤트 핸들러 2가지
     // 2. 게시판 및 커뮤니티 페이지에서 타이머 00:00이 되면 무조건 IDLE 컴포넌트로 돌아가기
     // 1. IDLE 컴포넌트에서 타이머 00:00이 되면 다른 IDLE 페이지로 이동하기
+    // 1, 2번 똑같은 컴포넌트임. 타이머가 00:00이 되면 그냥 바로 IDLE 페이지로만 돌아가면 해결
+    // 또한 IDLE 페이지에서도 5분이 지나면 다른 IDLE 페이지를 랜덤으로 띄워야함
+    // 둘 다 해결
 
     // 카운터 00:00 정보 받아온 뒤 IDLE 페이지 이동
     const navigate = useNavigate();
-    const Page = ['/', 'page4', '/page5'];
+    const Page = ['/', '/page4', '/page5'];
     const [num, setNum] = useState(0);
 
-    useEffect(() => {
-        if (!mounted.current) {
-            // 이 부분은 컴포넌트가 처음 Mount 되었을 때 아무 작업도 안하려고 넣은 것.
-            mounted.current = true;
-        } else {
-            if (timer === 0) {
-                setRemainZero(true);
+    const getRandomInt = (max) => {
+        return Math.floor(Math.random() * max);
+    }
+
+    useEffect((e) => {
+            if (timer === '00:00') {
+                const num_ = getRandomInt(3);
+                setNum(num_);
+                navigate(Page[num_]);
+                console.log('change page' + num_);
             }
-        }
     }, [timer]);
 
     return(
@@ -97,9 +104,11 @@ function App({match}){
                     {text}
                 </div>
                 <Routes>
-                    <Route path='/' element={<IDLE_page_3/>}/>
+                    <Route path='/' element={<IDLE_page_3/>} />
                     <Route path='/page4' element={<IDLE_page_4/>}/>
-                    <Route path='/page5' element={<IDLE_page_5/>}/>
+                    <Route path='/page5' element={<IDLE_page_5/>} />
+                    <Route path='/board' element={<BOARD_page/>}/>
+                    <Route path='/select' element={<SELECT_page/>} />
                 </Routes>
             </div>
         </div>
