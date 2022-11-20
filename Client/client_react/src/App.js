@@ -74,17 +74,19 @@ function App({match}){
     const Page = ['/', 'page4', '/page5'];
     const [num, setNum] = useState(0);
 
-    const changeIDLE = () => {
-        if(timer === '00:00'){
-             navigate(Page[setNum(Math.floor(Math.random() * 3))]);
+    useEffect(() => {
+        if (!mounted.current) {
+            // 이 부분은 컴포넌트가 처음 Mount 되었을 때 아무 작업도 안하려고 넣은 것.
+            mounted.current = true;
+        } else {
+            if (timer === 0) {
+                setRemainZero(true);
+            }
         }
-    }
-
-    changeIDLE();
+    }, [timer]);
 
     return(
         <div>
-
             <div onClick={TimerReset} style={{fontSize : '3rem'}}>
                 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
