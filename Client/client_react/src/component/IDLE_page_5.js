@@ -87,6 +87,7 @@ function IDLE_page_5() {
         prevArrow: <SamplePrevArrow />,
     };
 
+    
     return (
         <div>
             <Slider {...settings}>
