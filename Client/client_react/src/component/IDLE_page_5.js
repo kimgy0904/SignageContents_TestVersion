@@ -1,5 +1,4 @@
 // Signage 5 - App.js
-
 import Slider from "react-slick";
 import React, {useEffect, useRef, useState} from "react";
 import "slick-carousel/slick/slick.css";
@@ -44,6 +43,7 @@ function IDLE_page_5() {
             ws.current.onmessage = (evt) => {
                 // server에서 보낸 데이터
                 const data = JSON.parse(evt.data)
+                console.log(data);
                 data.map((data) => {
                     addMessage(data);
                     console.log(data);
@@ -86,9 +86,11 @@ function IDLE_page_5() {
 
     return (
         <div>
-            <Link to='/page4'>4</Link>
             <Slider {...settings}>
-                {imgs.map(m => <div><img src={m}/></div>)}
+                {imgs.map(m =>
+                <div className="image-box">
+                    <img src={m} className="image-thumbnail"/>
+                </div>)}
             </Slider>
             <div className="buttonDiv">
                 <Link to='/select' style={{color : 'white', textDecoration: 'none'}}><div className="BTN">작품 선택</div></Link>

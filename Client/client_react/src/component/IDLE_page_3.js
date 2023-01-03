@@ -12,6 +12,7 @@ function IDLE_page_3() {
     const [imgs, setImg] = useState([]);
     const [socketConnected, setSocketConnected] = useState(false);
 
+
     let ws = useRef(null);
 
     function addMessage(img) {
@@ -60,9 +61,11 @@ function IDLE_page_3() {
     return (
         <div>
             <Header/>
-            <Link to='/page4'>4</Link>
             <Slider {...settings}>
-                {imgs.map(m => <div><img src={m}/></div>)}
+                {imgs.map(m =>
+                    <div className="image-box">
+                        <img src={m} className="image-thumbnail"/>
+                    </div>)}
             </Slider>
             <div className="social">
                 <p>작품선택<br/>
