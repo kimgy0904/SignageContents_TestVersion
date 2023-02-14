@@ -5,7 +5,8 @@ import psycopg2
 import socket
 import os
 
-dbip = os.environ['SHELTER_DB']
+#dbip = os.environ['SHELTER_DB']
+dbip = "172.23.0.2" # Need change every time(temporary)
 
 conn = psycopg2.connect(
         host=dbip,
@@ -38,18 +39,22 @@ class Advertiser:
     async def runAdvertiser(self):
         cnt = 0
 
-        # advlist = [
-        #     "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg",
-        #     "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_960_720.jpg",
-        #     "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_960_720.jpg"
-        # ]
+        cur = conn.cursor()
 
-        advlist = [
-            "http://ocean.cu.ac.kr/files/W_CONTENTS/1620/20220930170044(1).jpg",
-            "http://ocean.cu.ac.kr/files/W_CONTENTS/1300/thumb_20190522135811.jpg",
-            "http://ocean.cu.ac.kr/files/W_CONTENTS/1512/thumb_20211221105853(3).jpg"
-        ]
+        sql = 'SELECT * FROM "Updator_advertisement_media"'
 
+        cur.execute(sql)
+
+        advlist = []
+
+        for rst in cur:
+            advlist.append(rst[1])
+
+        #advlist = [
+        #    "http://ocean.cu.ac.kr/files/W_CONTENTS/1620/20220930170044(1).jpg",
+        #    "http://ocean.cu.ac.kr/files/W_CONTENTS/1300/thumb_20190522135811.jpg",
+        #    "http://ocean.cu.ac.kr/files/W_CONTENTS/1512/thumb_20211221105853(3).jpg"
+        #]
 
         four_icon = [
             "https://cdn-icons-png.flaticon.com/512/636/636047.png",
@@ -72,4 +77,5 @@ class Advertiser:
             cnt += 1
             print()
             #1초 주기로 데이터 변경됨 -> 주기 변경 가능
+            
             await asyncio.sleep(10)
