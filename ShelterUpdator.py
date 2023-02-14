@@ -63,7 +63,8 @@ print(local_cursor)
 
 def JsonLoader():
     BASE_DIR = Path(__file__).resolve().parent.parent
-    Shelter_info_DIR = str(BASE_DIR) + "/ShelterInfo/shelter_info.json"
+    #Shelter_info_DIR = str(BASE_DIR) + "/ShelterInfo/shelter_info.json"
+    Shelter_info_DIR = "ShelterInfo/shelter_info.json"
 
     file_exist = os.path.exists(Shelter_info_DIR)
 
