@@ -1,6 +1,19 @@
 import asyncio
 import json
 import random
+import psycopg2
+import socket
+import os
+
+dbip = os.environ['SHELTER_DB']
+
+conn = psycopg2.connect(
+        host=dbip,
+        port="5433",
+        user="shelter",
+        password="20121208",
+        dbname="cms_shelter_server"
+        )
 
 class Advertiser:
     def __init__(self):
