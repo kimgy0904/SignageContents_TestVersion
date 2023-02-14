@@ -6,10 +6,9 @@ import socket
 import os
 
 #dbip = os.environ['SHELTER_DB']
-dbip = "172.23.0.2" # Need change every time(temporary)
 
 conn = psycopg2.connect(
-        host=dbip,
+        host="cms_shelter_db",
         port="5433",
         user="shelter",
         password="20121208",
