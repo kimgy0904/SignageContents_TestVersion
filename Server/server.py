@@ -2,6 +2,7 @@ import asyncio  # 웹 소켓 모듈을 선언한다.
 import json
 import pickle
 import websockets  # 클라이언트 접속이 되면 호출된다.
+import socket
 
 from advertiser import Advertiser
 
@@ -24,7 +25,7 @@ adv = Advertiser()
 
 async def main():
     await adv.init_adv()
-    async with websockets.serve(accept, "172.20.0.5", 5000):
+    async with websockets.serve(accept, socket.gethostbyname(socket.gethostname()), 5000):
         await asyncio.Future()
 
 
