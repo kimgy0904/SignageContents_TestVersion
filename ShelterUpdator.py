@@ -5,7 +5,7 @@ from tabulate import tabulate  # DB 데이터 출력 시 깔끔하게 출력
 from filer import createDirectory
 from psycopg2.extras import RealDictCursor
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # 일단 같은 로컬 서버 내에서 DB 연결 수행
@@ -62,9 +62,12 @@ print(local_cursor)
 
 
 def JsonLoader():
-    BASE_DIR = Path(__file__).resolve().parent.parent
+    # BASE_DIR = Path(__file__).resolve().parent.parent
+    BASE_DIR = Path(__file__).resolve().parent
+    print("BASE", BASE_DIR)
+    # print("Test", Path(__file__).resolve().parent)
     #Shelter_info_DIR = str(BASE_DIR) + "/ShelterInfo/shelter_info.json"
-    Shelter_info_DIR = "ShelterInfo/shelter_info.json"
+    Shelter_info_DIR = str(BASE_DIR) + "/ShelterInfo/shelter_info.json"
 
     file_exist = os.path.exists(Shelter_info_DIR)
 
@@ -78,7 +81,7 @@ def JsonLoader():
         print("file not exist")
 
 def DoneUpdate():
-    BASE_DIR = Path(__file__).resolve().parent.parent
+    BASE_DIR = Path(__file__).resolve().parent
     Shelter_info_DIR = str(BASE_DIR) + "/ShelterInfo/shelter_info.json"
 
     file_exist = os.path.exists(Shelter_info_DIR)
@@ -195,7 +198,7 @@ def GetShelter(s_id, exist):
 def GetCommunity(s_id, exist):
 
     # 쉘터에 연동된 커뮤니티 객체
-    main_cursor.execute("SELECT * FROM Management_community WHERE shelterFK = %s", s_id)
+    main_cursor.execute("SELECT * FROM \"Management_community\" WHERE \"shelterFK\" = {fk}".format(fk=s_id))
 
     community = main_cursor.fetchall()
 
@@ -212,7 +215,7 @@ def GetCommunity(s_id, exist):
                   )
 
         if exist == False:
-            local_cursor.execute("INSERT INTO Updator_community VALUES(%s, %s, %s, %s, %s, %s, %s);", values)
+            local_cursor.execute("INSERT INTO \"Updator_community\" VALUES(%s, %s, %s, %s, %s, %s, %s);", values)
 
         elif exist == True:
             pass
@@ -221,10 +224,10 @@ def GetCommunity(s_id, exist):
         id = com['id']
         update = (isUpdate, id)
 
-        main_cursor.execute("UPDATE Management_community SET isUpdate = %s WHERE id = %s;", update)
+        main_cursor.execute("UPDATE \"Management_community\" SET \"isUpdate\" = {update_1} WHERE \"id\" = {update_2};".format(update_1=update[0],update_2=update[1]))
 
         # 커뮤니티에 연동된 일상게시판
-        main_cursor.execute("SELECT * FROM Management_daily_board WHERE communityFK = %s", com['id'])
+        main_cursor.execute("SELECT * FROM \"Management_daily_board\" WHERE \"communityFK\" = {cfk}".format(cfk=com['id']))
 
         dboard = main_cursor.fetchall()
         for db in dboard:
@@ -240,7 +243,7 @@ def GetCommunity(s_id, exist):
                       )
 
             if exist == False:
-                local_cursor.execute("INSERT INTO Updator_daily_board VALUES(%s, %s, %s, %s, %s, %s, %s);", values)
+                local_cursor.execute("INSERT INTO \"Updator_daily_board\" VALUES(%s, %s, %s, %s, %s, %s, %s);", values)
 
             elif exist == True:
                 pass
@@ -249,15 +252,15 @@ def GetCommunity(s_id, exist):
             id = db['id']
             update = (isUpdate, id)
 
-            main_cursor.execute("UPDATE Management_daily_board SET isUpdate = %s WHERE id = %s;", update)
+            main_cursor.execute("UPDATE \"Management_daily_board\" SET \"isUpdate\" = {update_1} WHERE id = {update_2};".format(update_1=update[0], update_2=update[1]))
 
             # 일상게시판 연동된 댓글
             if exist == False:
-                main_cursor.execute("SELECT * FROM Management_comment WHERE dboardFK = %s", db['id'])
+                main_cursor.execute("SELECT * FROM \"Management_comment\" WHERE \"dboardFK\" = {id}".format(id=db['id']))
 
             elif exist == True:
                 values = (db['id'], False)
-                main_cursor.execute("SELECT * FROM Management_comment WHERE dboardFK = %s AND isUpdate = %s", values)
+                main_cursor.execute("SELECT * FROM \"Management_comment\" WHERE \"dboardFK\" = {values_1} AND \"isUpdate\" = {values_2}".format(values_1=values[0], values_2=values[1]))
 
             comment = main_cursor.fetchall()
             for c in comment:
@@ -306,7 +309,7 @@ def GetCommunity(s_id, exist):
                         print("no image")
 
         # 커뮤니티에 연동된 이슈게시판
-        main_cursor.execute("SELECT * FROM Management_issue_board WHERE communityFK = %s", com['id'])
+        main_cursor.execute("SELECT * FROM \"Management_issue_board\" WHERE \"communityFK\" = {cfk}".format(cfk=com['id']))
 
         iboard = main_cursor.fetchall()
         for ib in iboard:
@@ -322,7 +325,7 @@ def GetCommunity(s_id, exist):
                       )
 
             if exist == False:
-                local_cursor.execute("INSERT INTO Updator_issue_board VALUES(%s, %s, %s, %s, %s, %s, %s );", values)
+                local_cursor.execute("INSERT INTO \"Updator_issue_board\" VALUES(%s, %s, %s, %s, %s, %s, %s );", values)
 
             elif exist == True:
                 pass
@@ -331,15 +334,15 @@ def GetCommunity(s_id, exist):
             id = ib['id']
             update = (isUpdate, id)
 
-            main_cursor.execute("UPDATE Management_issue_board SET isUpdate = %s WHERE id = %s;", update)
+            main_cursor.execute("UPDATE \"Management_issue_board\" SET \"isUpdate\" = {update_1} WHERE id = {update_2};".format(update_1=update[0], update_2=update[1]))
 
             # 이슈게시판 연동된 댓글
             if exist == False:
-                main_cursor.execute("SELECT * FROM Management_comment WHERE iboardFK = %s", ib['id'])
+                main_cursor.execute("SELECT * FROM \"Management_comment\" WHERE \"iboardFK\" = {bfk}".format(bfk=ib['id']))
 
             elif exist == True:
                 values = (ib['id'], False)
-                main_cursor.execute("SELECT * FROM Management_comment WHERE iboardFK = %s AND isUpdate = %s", values)
+                main_cursor.execute("SELECT * FROM \"Management_comment\" WHERE \"iboardFK\" = {bfk} AND \"isUpdate\" = {boolean}".format(bfk=values[0], boolean=values[1]))
 
             comment = main_cursor.fetchall()
             for c in comment:
@@ -390,11 +393,11 @@ def GetCommunity(s_id, exist):
 def GetAdvertisement(s_id, exist):
     # 쉘터에 연동된 광고 객체
     if exist == False:
-        main_cursor.execute("SELECT * FROM Management_advertisement WHERE shelterFK = %s", s_id)
+        main_cursor.execute("SELECT * FROM \"Management_advertisement\" WHERE \"shelterFK\" = {sfk}".format(sfk=s_id))
 
     elif exist == True:
         values = (s_id, False)
-        main_cursor.execute("SELECT * FROM Management_advertisement WHERE shelterFK = %s AND isUpdate = %s", values)
+        main_cursor.execute("SELECT * FROM \"Management_advertisement\" WHERE \"shelterFK\" = {sfk} AND \"isUpdate\" = {boolean}".format(sfk=values[0], boolean=values[1]))
 
     advertisement = main_cursor.fetchall()
     for ad in advertisement:
@@ -442,11 +445,11 @@ def GetAdvertisement(s_id, exist):
 def GetContent(s_id, exist):
     # 쉘터에 연동된 콘텐츠 객체
     if exist == False:
-        main_cursor.execute("SELECT * FROM Management_content WHERE shelterFK = %s", s_id)
+        main_cursor.execute("SELECT * FROM \"Management_content\" WHERE \"shelterFK\" = {sfk}".format(sfk=s_id))
 
     elif exist == True:
         values = (s_id, False)
-        main_cursor.execute("SELECT * FROM Management_content WHERE shelterFK = %s AND isUpdate = %s", values)
+        main_cursor.execute("SELECT * FROM \"Management_content\" WHERE \"shelterFK\" = {sfk} AND \"isUpdate\" = {boolean}".format(sfk=values[0], boolean=values[1]))
 
     content = main_cursor.fetchall()
     for con in content:
@@ -510,7 +513,11 @@ def QuerySet(shelter_id, exist):
 
     update = (updated_time, shelter_id)
 
-    main_cursor.execute("UPDATE Management_shelter SET localupdateDate = %s WHERE id = %s;", update)
+    print(update[0])
+
+    #main_cursor.execute("UPDATE \"Management_shelter\" SET \"localupdateDate\" = \'{localupdate}\' WHERE \"id\" = {id};".format(localupdate=update[0] + "+00", id=update[1]))
+
+    main_cursor.execute("UPDATE \"Management_shelter\" SET \"localupdateDate\" = now() WHERE \"id\" = {id};".format(id=update[1]))   
 
     LOCAL_SHELTER_SERVER_DB.commit()
     CMS_MAIN_SERVER_DB.commit()

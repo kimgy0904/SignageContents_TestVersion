@@ -3,18 +3,20 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+mainip = os.environ['CMS_MAIN_IP']
+
 # CMS 공유 디렉토리
-FTP_DIRECTORY = os.path.join(BASE_DIR, 'cms_main_server/media/')
+FTP_DIRECTORY = os.path.join(BASE_DIR, 'cms_main_server/media')
 
 def MediaDownload(fileDir): # 이거 코드 중복 수정. 조건문 왜 안되지!!!!이거 이미지, 동영상, 커뮤니티 댓글, 이미지 다 될수있도록 수정
 
     # 하드코딩 요소로 추후 수정요망
-    serverIP = "203.250.33.53"
-    serverPort = 9021
+    # serverIP = "203.250.33.53"
+    serverIP = mainip
+    serverPort = 9022
 
-    clientID = "shelter01"
-    clientPW = "shelter01"
-
+    clientID = "shelter"
+    clientPW = "20121208"
 
     ftp = ftplib.FTP()
     ftp.connect(serverIP, serverPort)
