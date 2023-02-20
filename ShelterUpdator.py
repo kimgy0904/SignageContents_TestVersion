@@ -278,17 +278,17 @@ def GetCommunity(s_id, exist):
                           c['iboardFK'],
                           )
 
-                local_cursor.execute("INSERT INTO Updator_comment VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", values)
+                local_cursor.execute("INSERT INTO \"Updator_comment\" VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", values)
 
                 isUpdate = True
                 id = c['id']
                 update = (isUpdate, id)
 
-                main_cursor.execute("UPDATE Management_comment SET isUpdate = %s WHERE id = %s;", update)
+                main_cursor.execute("UPDATE \"Management_comment\" SET \"isUpdate\" = %s WHERE \"id\" = %s;", update)
 
 
                 # 댓글에 연동된 미디어 댓글
-                main_cursor.execute("SELECT * FROM Management_comment_media WHERE commentFK = %s", c['id'])
+                main_cursor.execute("SELECT * FROM \"Management_comment_media\" WHERE commentFK = %s", c['id'])
 
                 media = main_cursor.fetchall()
                 for m in media:
@@ -299,7 +299,7 @@ def GetCommunity(s_id, exist):
                               m['commentFK'],
                               )
 
-                    local_cursor.execute("INSERT INTO Updator_comment_media VALUES(%s, %s, %s);", values)
+                    local_cursor.execute("INSERT INTO \"Updator_comment_media\" VALUES(%s, %s, %s);", values)
 
                     if m['image'] != "":
                         ftp.MediaDownload(m['image'])
@@ -360,17 +360,17 @@ def GetCommunity(s_id, exist):
                           c['iboardFK'],
                           )
 
-                local_cursor.execute("INSERT INTO Updator_comment VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", values)
+                local_cursor.execute("INSERT INTO \"Updator_comment\" VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", values)
 
                 isUpdate = True
                 id = c['id']
                 update = (isUpdate, id)
 
-                main_cursor.execute("UPDATE Management_comment SET isUpdate = %s WHERE id = %s;", update)
+                main_cursor.execute("UPDATE \"Management_comment\" SET \"isUpdate\" = %s WHERE \"id\" = %s;", update)
 
 
                 # 댓글에 연동된 미디어 댓글
-                main_cursor.execute("SELECT * FROM Management_comment_media WHERE commentFK = %s", c['id'])
+                main_cursor.execute("SELECT * FROM \"Management_comment_media\" WHERE \"commentFK\" = %s", c['id'])
                 media = main_cursor.fetchall()
                 for m in media:
                     print(json.dumps(m, indent=4, default=str))
@@ -380,7 +380,7 @@ def GetCommunity(s_id, exist):
                               m['commentFK'],
                               )
 
-                    local_cursor.execute("INSERT INTO Updator_comment_media VALUES(%s, %s, %s);", values)
+                    local_cursor.execute("INSERT INTO \"Updator_comment_media\" VALUES(%s, %s, %s);", values)
 
 
                     if m['image'] != "":
@@ -417,16 +417,16 @@ def GetAdvertisement(s_id, exist):
                   ad['shelterFK'],
                   )
 
-        local_cursor.execute("INSERT INTO Updator_advertisement VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", values)
+        local_cursor.execute("INSERT INTO \"Updator_advertisement\" VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", values)
 
         isUpdate = True
         id = ad['id']
         update = (isUpdate, id)
 
-        main_cursor.execute("UPDATE Management_advertisement SET isUpdate = %s WHERE id = %s;", update)
+        main_cursor.execute("UPDATE \"Management_advertisement\" SET \"isUpdate\" = %s WHERE \"id\" = %s;", update)
 
 
-        main_cursor.execute("SELECT * FROM Management_advertisement_media WHERE advertisementFK = %s", ad['id'])
+        main_cursor.execute("SELECT * FROM \"Management_advertisement_media\" WHERE \"advertisementFK\" = %s", ad['id'])
         adv_media = main_cursor.fetchall()
         for adv in adv_media:
             print(json.dumps(adv, indent=4, default=str))
@@ -437,7 +437,7 @@ def GetAdvertisement(s_id, exist):
                       adv['advertisementFK'],
                       )
 
-            local_cursor.execute("INSERT INTO Updator_advertisement_media VALUES(%s, %s, %s, %s);", values)
+            local_cursor.execute("INSERT INTO \"Updator_advertisement_media\" VALUES(%s, %s, %s, %s);", values)
 
             ftp.MediaDownload(adv['content'])
 
@@ -468,15 +468,15 @@ def GetContent(s_id, exist):
                   con['shelterFK'],
                   )
 
-        local_cursor.execute("INSERT INTO Updator_content VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", values)
+        local_cursor.execute("INSERT INTO \"Updator_content\" VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", values)
 
         isUpdate = True
         id = con['id']
         update = (isUpdate, id)
 
-        main_cursor.execute("UPDATE Management_content SET isUpdate = %s WHERE id = %s;", update)
+        main_cursor.execute("UPDATE \"Management_content\" SET \"isUpdate\" = %s WHERE id = %s;", update)
 
-        main_cursor.execute("SELECT * FROM Management_content_description WHERE contentFK = %s", con['id'])
+        main_cursor.execute("SELECT * FROM \"Management_content_description\" WHERE \"contentFK\" = %s", con['id'])
         cont_media = main_cursor.fetchall()
         for cont in cont_media:
             print(json.dumps(cont, indent=4, default=str))
@@ -491,7 +491,7 @@ def GetContent(s_id, exist):
                       cont['contentFK'],
                       )
 
-            local_cursor.execute("INSERT INTO Updator_content_description VALUES(%s, %s, %s, %s, %s, %s, %s, %s);", values)
+            local_cursor.execute("INSERT INTO \"Updator_content_description\" VALUES(%s, %s, %s, %s, %s, %s, %s, %s);", values)
 
             ftp.MediaDownload(cont['upload_file'])
             print("콘텐츠 동기화 파일", cont['upload_file'])

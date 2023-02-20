@@ -8,10 +8,12 @@ cd /root/LivingLab-CMS-IDLE_boeun/Client/client_react
 
 npm start &
 
-cd ../../Server
+cd ../../
 
-python3 server.py &
+python3 ShelterUpdator.py &
+# python3 server.py &
 
-cd ../
+cd Server/
 
-python3 ShelterUpdator.py
+python3 server.py
+#python3 ShelterUpdator.py
