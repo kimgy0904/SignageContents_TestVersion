@@ -513,8 +513,6 @@ def QuerySet(shelter_id, exist):
 
     update = (updated_time, shelter_id)
 
-    print(update[0])
-
     #main_cursor.execute("UPDATE \"Management_shelter\" SET \"localupdateDate\" = \'{localupdate}\' WHERE \"id\" = {id};".format(localupdate=update[0] + "+00", id=update[1]))
 
     main_cursor.execute("UPDATE \"Management_shelter\" SET \"localupdateDate\" = now() WHERE \"id\" = {id};".format(id=update[1]))   
