@@ -426,7 +426,7 @@ def GetAdvertisement(s_id, exist):
         main_cursor.execute("UPDATE \"Management_advertisement\" SET \"isUpdate\" = %s WHERE \"id\" = %s;", update)
 
 
-        main_cursor.execute("SELECT * FROM \"Management_advertisement_media\" WHERE \"advertisementFK\" = %s", ad['id'])
+        main_cursor.execute("SELECT * FROM \"Management_advertisement_media\" WHERE \"advertisementFK\" = {id}".format(id=ad['id']))
         adv_media = main_cursor.fetchall()
         for adv in adv_media:
             print(json.dumps(adv, indent=4, default=str))
