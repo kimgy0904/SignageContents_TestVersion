@@ -67,7 +67,7 @@ class Advertiser:
         while True:
             for idx, cli in enumerate(self.clients.values()):
                 #여기에 사진 링크 보내면 될듯
-                data = random.sample(advlist, 3)
+                data = random.sample(advlist, len(advlist))
                 # data_string = json.dumps(four_icon)
                 adv_string = json.dumps(data)
                 await cli.send(adv_string)
