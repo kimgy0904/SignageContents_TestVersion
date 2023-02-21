@@ -32,6 +32,11 @@ var/
 *.manifest
 *.spec
 
+# Ignore extra file in src
+*/Advertisement/*
+*/ShelterQR/*
+*/Shelter_Profile/*
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
