@@ -9,7 +9,7 @@ from websockets.exceptions import ConnectionClosedOK
 #dbip = os.environ['SHELTER_DB']
 
 conn = psycopg2.connect(
-        host="cms_shelter_db",
+        host="127.0.0.1",
         port="5433",
         user="shelter",
         password="20121208",
@@ -48,7 +48,9 @@ class Advertiser:
         advlist = []
 
         for rst in cur:
-            advlist.append("/root/LivingLab-CMS-IDLE_boeun/Client/client_react/src/" + rst[1])
+            advlist.append("/img/" + rst[1])
+        print("advlist")
+        print(advlist)
 
         #advlist = [
         #    "http://ocean.cu.ac.kr/files/W_CONTENTS/1620/20220930170044(1).jpg",
@@ -81,7 +83,6 @@ class Advertiser:
                     break
 
             cnt += 1
-            print()
             #1초 주기로 데이터 변경됨 -> 주기 변경 가능
             
             await asyncio.sleep(5)
