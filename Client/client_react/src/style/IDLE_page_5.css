@@ -2,7 +2,6 @@
 
 .buttonDiv{
     color: white;
-    height: 27vh;
     position: relative;
     text-align: center;
     display: grid;
@@ -16,24 +15,21 @@
     display: inline-block;
 }
 
-.image-box {
-    width: auto;
-    height: auto;
-    overflow:hidden;
-    margin:0 auto;
+img{
+    object-fit: fill;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.image-thumbnail {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.buttonDiv > div{
+.BTN{
+    text-decoration-line: none;
     font-family: 'yg-jalnan';
     color: white;
-    font-size: 2.7rem;
-    padding-top: 6rem;
+    font-size: 4.5rem;
+    height: 23vh;
+    padding-top: 10rem;
     background: deepskyblue;
 }
 

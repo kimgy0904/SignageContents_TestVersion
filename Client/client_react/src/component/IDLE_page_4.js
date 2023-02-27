@@ -10,6 +10,8 @@ function IDLE_page_4() {
     const [img, setImg] = useState([0, 1, 2, 3, 4, 5]);
     const [socketConnected, setSocketConnected] = useState(false);
 
+    const static_imgs = [];
+
     let ws = useRef(null);
 
     const connectServer = () => {
@@ -45,47 +47,63 @@ function IDLE_page_4() {
                 setImg[3] = data[3];
                 setImg[4] = data[4];
                 setImg[5] = data[5];
-
                 setOutputs((prevItems) => data);
             };
         };
     };
     useEffect(() => {
-        connectServer();
+        // connectServer();
     });
     return (
-        <div>
+        <div className="bo">
             <header>
                 <div className="h1">사이니지 이용방법</div>
             </header>
-            <section className="gallery">
+            <wrap>
                 <div className="h2">쉘터 사이니지를 100% 활용할 수 있는 방법</div>
-                <div>
+                <table className="gallery">
                     <div className="h4">콘텐츠 이용방법</div>
-                    <div className="STEP"><td>STEP1</td><td>STEP2</td><td>STEP3</td></div>
+                    <tr className="STEP">
+                        <td className="B">STEP1</td>
+                        <td></td>
+                        <td className="B">STEP2</td>
+                        <td></td>
+                        <td className="B">STEP3</td>
+                    </tr>
 
-                    <img src={setImg[0]}/>
-                    <img className="A" src={setImg[5]}/>
-                    <img src={setImg[1]}/>
-                    <img className="A" src={setImg[5]}/>
-                    <img src={setImg[2]}/>
+                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/>
+                    <img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/>
+                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_1.png'}/>
+                    <img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/>
+                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_2.png'}/>
                     <div><p>작품 보러가기 클릭!</p> <p>보고싶은 작품 선택</p> <p>작품 감상!</p></div>
 
                     <tr className="h4"><td colSpan='3'>커뮤니티 이용방법</td></tr>
 
 
-                    <tr className="STEP"><td>STEP1</td><td>STEP2</td><td>STEP3</td></tr>
+                    <tr className="STEP">
+                        <td className="B">STEP1</td>
+                        <td></td>
+                        <td className="B">STEP2</td>
+                        <td></td>
+                        <td className="B">STEP3</td>
+                    </tr>
 
-                    <img src={setImg[0]}/>
-                    <img className="A" src={setImg[5]}/>
-                    <img src={setImg[3]}/>
-                    <img className="A" src={setImg[5]}/>
-                    <img src={setImg[4]}/>
+                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/>
+                    <img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/>
+                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_3.png'}/>
+                    <img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/>
+                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_4.png'}/>
+
+                    {/*
+                    Image insert sample (not from websocket or db)
+                    */}
+                    <img src={`${process.env.PUBLIC_URL}`} className="image-thumbnail"/>
 
                     <div><p>커뮤니티 클릭!</p> <p>주제별<br/>게시판 선택</p> <p>글 작성하기</p></div>
 
-                </div>
-            </section>
+                </table>
+            </wrap>
             <footer>
             <button className="btn_a"><Link to='/select' style={{color : 'white', textDecoration: 'none'}}>작품 보러가기</Link></button>
                 <button className="btn_b"><Link to='/board' style={{color : 'white', textDecoration: 'none'}}>커뮤니티</Link></button>
