@@ -52,6 +52,7 @@ function IDLE_page_4() {
         };
     };
     useEffect(() => {
+        // 더 이상 사용하지 않는 코드
         // connectServer();
     });
     return (
@@ -70,15 +71,25 @@ function IDLE_page_4() {
                         <td></td>
                         <td className="B">STEP3</td>
                     </tr>
+                    <tr>
+                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/></td>
+                        <td><img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/></td>
+                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_1.png'}/></td>
+                        <td><img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/></td>
+                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_2.png'}/></td>
+                    </tr>
 
-                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/>
-                    <img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/>
-                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_1.png'}/>
-                    <img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/>
-                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_2.png'}/>
-                    <div><p>작품 보러가기 클릭!</p> <p>보고싶은 작품 선택</p> <p>작품 감상!</p></div>
+                    <tr>
+                        <td><p>작품 보러가기 클릭!</p></td>
+                        <td></td>
+                        <td><p>보고싶은 작품 선택</p></td>
+                        <td></td>
+                        <td><p>작품 감상!</p></td>
+                    </tr>
 
-                    <tr className="h4"><td colSpan='3'>커뮤니티 이용방법</td></tr>
+                    <div id="sp"></div>
+
+                    <div className="h4">커뮤니티 이용방법</div>
 
 
                     <tr className="STEP">
@@ -89,18 +100,28 @@ function IDLE_page_4() {
                         <td className="B">STEP3</td>
                     </tr>
 
-                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/>
-                    <img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/>
-                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_3.png'}/>
-                    <img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/>
-                    <img src={`${process.env.PUBLIC_URL}`+'/page4/img_4.png'}/>
+                    <tr>
+                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/></td>
+                        <td><img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/></td>
+                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_3.png'}/></td>
+                        <td><img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/></td>
+                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_4.png'}/></td>
+                    </tr>
 
                     {/*
                     Image insert sample (not from websocket or db)
-                    */}
-                    <img src={`${process.env.PUBLIC_URL}`} className="image-thumbnail"/>
 
-                    <div><p>커뮤니티 클릭!</p> <p>주제별<br/>게시판 선택</p> <p>글 작성하기</p></div>
+                    process.env.PUBLIC_URL meaning /public directory in npm home directory
+                    <img src={`${process.env.PUBLIC_URL}`} className="image-thumbnail"/>
+                    */}
+
+                    <tr>
+                        <td><p>커뮤니티 클릭!!</p></td>
+                        <td></td>
+                        <td><p>주제별<br/>게시판 선택</p></td>
+                        <td></td>
+                        <td><p>글 작성하기</p></td>
+                    </tr>
 
                 </table>
             </wrap>
