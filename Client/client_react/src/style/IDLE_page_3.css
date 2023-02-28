@@ -39,7 +39,7 @@ Slider{
 }
 
 img{
-    object-fit: fill;
+    object-fit: cover;
     height: 30rem;
     display: block;
     margin-left: auto;
