@@ -22,6 +22,19 @@ html,body{
     display: inline-block;
 }
 
+.h1-y{
+    text-align: center;
+    font-family: 'GangwonEduPowerExtraBoldA';
+    text-shadow: 3px 3px #727272;
+    -webkit-text-stroke: 2px black;
+    font-size: 3.5rem;
+    position: relative;
+    color: yellow;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
 #sp{
     height: 20px;
 }
@@ -48,8 +61,12 @@ wrap{
 }
 
 /*img tag under table td*/
-td > img{
+/* td > img{
     width: 3rem;
+} */
+
+.div-r{
+    color: rgb(225, 80, 80);
 }
 
 .h4{
@@ -87,6 +104,24 @@ td > img{
     height: 3rem;
 }
 
+.si_img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+}
+
+.si_img_2 {
+    width: 5rem;
+    height: 6rem;
+    object-fit: cover;
+}
+
+.si_img_3 {
+    width: 6.5rem;
+    height: 4em;
+    object-fit: cover;
+}
+
 .gallery{
     display: inline-block;
     width: 100%;
@@ -108,7 +143,7 @@ table{
     border-right: 2.2px solid black;
     background-color: white;
     position: relative;
-    padding: 2rem;
+    padding: 3rem;
     text-align: center;
     display: inline-block;
     height: 40rem;

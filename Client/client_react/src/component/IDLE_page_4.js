@@ -58,7 +58,8 @@ function IDLE_page_4() {
     return (
         <div className="bo">
             <header>
-                <div className="h1">사이니지 이용방법</div>
+                <div className="h1-y">사이니지</div>
+                <div className="h1">&nbsp;이용방법</div>
             </header>
             <wrap>
                 <div className="h2">쉘터 사이니지를 100% 활용할 수 있는 방법</div>
@@ -72,11 +73,11 @@ function IDLE_page_4() {
                         <td className="B">STEP3</td>
                     </tr>
                     <tr>
-                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/></td>
+                        <td><img className="si_img" src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/></td>
                         <td><img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/></td>
-                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_1.png'}/></td>
+                        <td><img className="si_img_2" src={`${process.env.PUBLIC_URL}`+'/page4/img_1.png'}/></td>
                         <td><img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/></td>
-                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_2.png'}/></td>
+                        <td><img className="si_img" src={`${process.env.PUBLIC_URL}`+'/page4/img_2.png'}/></td>
                     </tr>
 
                     <tr>
@@ -101,11 +102,11 @@ function IDLE_page_4() {
                     </tr>
 
                     <tr>
-                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/></td>
+                        <td><img className="si_img" src={`${process.env.PUBLIC_URL}`+'/page4/img_0.png'}/></td>
                         <td><img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/></td>
-                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_3.png'}/></td>
+                        <td><img className="si_img_3" src={`${process.env.PUBLIC_URL}`+'/page4/img_3.png'}/></td>
                         <td><img className="A" src={`${process.env.PUBLIC_URL}`+'/page4/img_5.png'}/></td>
-                        <td><img src={`${process.env.PUBLIC_URL}`+'/page4/img_4.png'}/></td>
+                        <td><img className="si_img" src={`${process.env.PUBLIC_URL}`+'/page4/img_4.png'}/></td>
                     </tr>
 
                     {/*
@@ -118,9 +119,9 @@ function IDLE_page_4() {
                     <tr>
                         <td><p>커뮤니티 클릭!!</p></td>
                         <td></td>
-                        <td><p>주제별<br/>게시판 선택</p></td>
+                        <td><p>주제별 게시판 선택</p></td>
                         <td></td>
-                        <td><p>글 작성하기</p></td>
+                        <td><p>게시글 작성하기</p></td>
                     </tr>
 
                 </table>

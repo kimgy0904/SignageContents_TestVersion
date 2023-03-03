@@ -91,12 +91,12 @@ function App(){
             <div onClick={TimerReset} style={{fontSize : '3rem'}}>
                 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
-                <div style={{backgroundColor : 'black', fontSize : '3rem',
+                {/* <div style={{backgroundColor : 'black', fontSize : '3rem',
                     fontFamily: 'yg-jalnan', color : 'white'}}>
                     {timer}
                     <br/>
                     {text}
-                </div>
+                </div> */}
             <Routes>
                 <Route path='/' element={<IDLE_page_3/>}/>
                 <Route path='/page4' element={<IDLE_page_4/>}/>
