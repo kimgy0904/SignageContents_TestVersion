@@ -48,9 +48,7 @@ class Advertiser:
         advlist = []
 
         for rst in cur:
-            advlist.append("/img/" + rst[1])
-        print("advlist")
-        print(advlist)
+            advlist.append(rst[1])
 
         #advlist = [
         #    "http://ocean.cu.ac.kr/files/W_CONTENTS/1620/20220930170044(1).jpg",

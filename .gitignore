@@ -37,6 +37,8 @@ var/
 */ShelterQR/*
 */Shelter_Profile/*
 
+ShelterInfo/shelter_info.json
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
