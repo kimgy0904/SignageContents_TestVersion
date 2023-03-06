@@ -14,7 +14,6 @@ function App(){
     const Ref = useRef(null);
     const [text, setText] = useState('');
     const [timer, setTimer] = useState();
-    const refresh_time = 600;
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
@@ -56,7 +55,7 @@ function App(){
     const getDeadTime = () => {
         let deadline = new Date();
         //300 = 5분
-        deadline.setSeconds(deadline.getSeconds() + refresh_time);
+        deadline.setSeconds(deadline.getSeconds() + 5);
         return deadline;
     }
     useEffect(() => {
@@ -91,12 +90,12 @@ function App(){
             <div onClick={TimerReset} style={{fontSize : '3rem'}}>
                 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
-                {/* <div style={{backgroundColor : 'black', fontSize : '3rem',
+                <div style={{backgroundColor : 'black', fontSize : '3rem',
                     fontFamily: 'yg-jalnan', color : 'white'}}>
                     {timer}
                     <br/>
                     {text}
-                </div> */}
+                </div>
             <Routes>
                 <Route path='/' element={<IDLE_page_3/>}/>
                 <Route path='/page4' element={<IDLE_page_4/>}/>

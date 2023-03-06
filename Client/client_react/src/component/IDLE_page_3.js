@@ -44,17 +44,13 @@ function IDLE_page_3() {
             ws.current.onmessage = (evt) => {
                 // server에서 보낸 데이터
                 const data = JSON.parse(evt.data)
-                console.log("data")
-                console.log(data)
                 data.map((data) => {
-                    console.log("data.map")
-                    console.log(data)
                     addMessage(data);
-                    // console.log(data);
+                    console.log(data);
                 })
             };
         };
-    }, [])
+    })
     const settings = {
         slide: 'img',
         infinite: true,
@@ -69,7 +65,7 @@ function IDLE_page_3() {
             <Slider {...settings}>
                 {imgs.map(m =>
                     <div className="image-box">
-                        <img src={`${process.env.PUBLIC_URL}` + m} className="image-thumbnail"/>
+                        <img src={m} className="image-thumbnail"/>
                     </div>)}
             </Slider>
             <div className="social">
