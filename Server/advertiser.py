@@ -4,6 +4,7 @@ import random
 import psycopg2
 import socket
 import os
+from websockets.exceptions import ConnectionClosedOK
 
 #dbip = os.environ['SHELTER_DB']
 
@@ -47,7 +48,7 @@ class Advertiser:
         advlist = []
 
         for rst in cur:
-            advlist.append(rst[1])
+            advlist.append("/root/LivingLab-CMS-IDLE_boeun/Client/client_react/src/" + rst[1])
 
         #advlist = [
         #    "http://ocean.cu.ac.kr/files/W_CONTENTS/1620/20220930170044(1).jpg",
@@ -70,11 +71,17 @@ class Advertiser:
                 data = random.sample(advlist, len(advlist))
                 # data_string = json.dumps(four_icon)
                 adv_string = json.dumps(data)
-                await cli.send(adv_string)
+                try:
+                    await cli.send(adv_string)
                 # await cli.send(data_string)
-                print(idx, cli.origin, 'data sended', adv_string)
+                except ConnectionClosedOK:
+                    print(idx, cli.origin, 'data sended', adv_string)
+                    del self.clients[cli.id]
+                    self.printClients()
+                    break
+
             cnt += 1
             print()
             #1초 주기로 데이터 변경됨 -> 주기 변경 가능
             
-            await asyncio.sleep(10)
+            await asyncio.sleep(5)

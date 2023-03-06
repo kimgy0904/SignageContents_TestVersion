@@ -61,6 +61,7 @@ function IDLE_page_3() {
     return (
         <div>
             <Header/>
+	    <img src="/img/스크린샷_20221228_031402.png" />
             <Slider {...settings}>
                 {imgs.map(m =>
                     <div className="image-box">
