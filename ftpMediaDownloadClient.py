@@ -10,7 +10,7 @@ mainip = os.environ['CMS_MAIN_IP']
 # Legacy FTP dir
 # FTP_DIRECTORY = os.path.join(BASE_DIR, 'cms_main_server/media')
 
-FTP_DIRECTORY = os.path.join(os.getcwd(), 'Client/client_react/src')
+FTP_DIRECTORY = os.path.join(os.getcwd(), 'Client/client_react/public/ftp')
 
 def MediaDownload(fileDir): # 이거 코드 중복 수정. 조건문 왜 안되지!!!!이거 이미지, 동영상, 커뮤니티 댓글, 이미지 다 될수있도록 수정
 
