@@ -15,7 +15,7 @@ python3 manage.py migrate # migrate database
 # Start IDLE Page
 sleep 3s
 
-cd /root/LivingLab-CMS-IDLE_boeun/Client/client_react
+cd /root/LivingLab-CMS-IDLE/Client/client_react
 
 npm start &
 
