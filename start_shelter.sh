@@ -17,7 +17,8 @@ sleep 3s
 
 cd /root/LivingLab-CMS-IDLE/Client/client_react
 
-npm start &
+#npm start &
+/bin/bash -c "source $NVM_DIR/nvm.sh && nvm use --delete-prefix $NODE_VERSION && npm start &"
 
 #--------------------------
 
