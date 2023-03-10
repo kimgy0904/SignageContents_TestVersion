@@ -65,7 +65,7 @@ function IDLE_page_3() {
             <Slider {...settings}>
                 {imgs.map(m =>
                     <div className="image-box">
-                        <img src={m} className="image-thumbnail"/>
+                        <img src={`${process.env.PUBLIC_URL}` + m} className="image-thumbnail"/>
                     </div>)}
             </Slider>
             <div className="social">

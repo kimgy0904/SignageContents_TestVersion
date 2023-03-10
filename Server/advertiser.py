@@ -47,10 +47,10 @@ class Advertiser:
 
         advlist = []
 
-        react_path = "/root/LivingLab-CMS-IDLE/Client/client_react/public/ftp/"
+        ftp_path = "/ftp/"
 
         for rst in cur:
-            advlist.append(react_path + rst[1])
+            advlist.append(ftp_path + rst[1])
 
         #advlist = [
         #    "http://ocean.cu.ac.kr/files/W_CONTENTS/1620/20220930170044(1).jpg",
