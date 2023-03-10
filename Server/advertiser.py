@@ -47,7 +47,7 @@ class Advertiser:
 
         advlist = []
 
-        react_path = "LivingLab-CMS-IDLE/Client/client_react/public/ftp/"
+        react_path = "/root/LivingLab-CMS-IDLE/Client/client_react/public/ftp/"
 
         for rst in cur:
             advlist.append(react_path + rst[1])
