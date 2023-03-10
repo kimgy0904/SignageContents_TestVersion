@@ -15,6 +15,8 @@ function App(){
     const [text, setText] = useState('');
     const [timer, setTimer] = useState();
 
+    const idle_time = 30;
+
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
         const seconds =Math.floor((total / 1000) % 60);
@@ -55,7 +57,7 @@ function App(){
     const getDeadTime = () => {
         let deadline = new Date();
         //300 = 5분
-        deadline.setSeconds(deadline.getSeconds() + 5);
+        deadline.setSeconds(deadline.getSeconds() + idle_time);
         return deadline;
     }
     useEffect(() => {
