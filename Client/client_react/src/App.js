@@ -6,8 +6,6 @@ import './App.css';
 import IDLE_page_3 from "./component/IDLE_page_3";
 import IDLE_page_4 from "./component/IDLE_page_4";
 import IDLE_page_5 from "./component/IDLE_page_5";
-import BOARD_page from "./component/BOARD_page";
-import SELECT_page from "./component/SELECT_page";
 
 function App(){
     //5분 타이머
@@ -15,7 +13,7 @@ function App(){
     const [text, setText] = useState('');
     const [timer, setTimer] = useState();
 
-    const idle_time = 30;
+    const idle_time = 600;
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
@@ -102,8 +100,6 @@ function App(){
                 <Route path='/' element={<IDLE_page_3/>}/>
                 <Route path='/page4' element={<IDLE_page_4/>}/>
                 <Route path='/page5' element={<IDLE_page_5/>} />
-                <Route path='/board' element={<BOARD_page/>}/>
-                <Route path='/select' element={<SELECT_page/>} />
             </Routes>
             </div>
         </div>
