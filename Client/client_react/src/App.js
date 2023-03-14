@@ -7,6 +7,14 @@ import IDLE_page_3 from "./component/IDLE_page_3";
 import IDLE_page_4 from "./component/IDLE_page_4";
 import IDLE_page_5 from "./component/IDLE_page_5";
 
+import ContentDetailView from "./component/ContentDetailView";
+import SignageShow from "./component/SignageShow";
+import Community from "./component/Community";
+import IssueBoard from "./component/IssueBoard";
+import DailyBoard from "./component/DailyBoard";
+import PaintList from "./component/PaintList";
+import MediaDetailView from "./component/MediaDetailView";
+
 function App(){
     //5분 타이머
     const Ref = useRef(null);
@@ -100,6 +108,13 @@ function App(){
                 <Route path='/' element={<IDLE_page_3/>}/>
                 <Route path='/page4' element={<IDLE_page_4/>}/>
                 <Route path='/page5' element={<IDLE_page_5/>} />
+                <Route path='/select' element={<SignageShow/>} />
+                <Route path='/board' element={<Community/>} />
+                <Route path='/issueboard' element={<IssueBoard/>} />
+                <Route path='/dailyboard' element={<DailyBoard/>} />
+                <Route path='/paintlist' element={<PaintList/>} />
+                <Route path='/contentDetailView' element={<ContentDetailView/>}/>
+                <Route path='/mediaDetailView' element={<MediaDetailView/>}/>
             </Routes>
             </div>
         </div>
