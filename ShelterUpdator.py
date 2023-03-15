@@ -288,7 +288,7 @@ def GetCommunity(s_id, exist):
 
 
                 # 댓글에 연동된 미디어 댓글
-                main_cursor.execute("SELECT * FROM \"Management_comment_media\" WHERE commentFK = %s", c['id'])
+                main_cursor.execute("SELECT * FROM \"Management_comment_media\" WHERE \"commentFK\" = {cfk}".format(cfk=c['id']))
 
                 media = main_cursor.fetchall()
                 for m in media:
@@ -476,7 +476,7 @@ def GetContent(s_id, exist):
 
         main_cursor.execute("UPDATE \"Management_content\" SET \"isUpdate\" = %s WHERE id = %s;", update)
 
-        main_cursor.execute("SELECT * FROM \"Management_content_description\" WHERE \"contentFK\" = %s", con['id'])
+        main_cursor.execute("SELECT * FROM \"Management_content_description\" WHERE \"contentFK\" = {cfk}".format(cfk=con['id']))
         cont_media = main_cursor.fetchall()
         for cont in cont_media:
             print(json.dumps(cont, indent=4, default=str))

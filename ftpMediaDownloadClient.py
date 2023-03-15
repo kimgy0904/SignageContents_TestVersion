@@ -43,7 +43,7 @@ def MediaDownload(fileDir): # 이거 코드 중복 수정. 조건문 왜 안되�
     # DOWNLOAD_DIR = os.path.join(SHELTER_DIR, dir) 
     DOWNLOAD_DIR = os.path.join(FTP_DIRECTORY, dir) 
 
-    os.makedirs(DOWNLOAD_DIR)
+    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
     fd = open(DOWNLOAD_DIR + '/' + file, 'wb')
     ftp.retrbinary('RETR %s' % file, fd.write)
     fd.close()
