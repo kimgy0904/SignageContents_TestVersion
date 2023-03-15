@@ -370,7 +370,7 @@ def GetCommunity(s_id, exist):
 
 
                 # 댓글에 연동된 미디어 댓글
-                main_cursor.execute("SELECT * FROM \"Management_comment_media\" WHERE \"commentFK\" = %s", c['id'])
+                main_cursor.execute("SELECT * FROM \"Management_comment_media\" WHERE \"commentFK\" = {cfk}".format(cfk=c['id']))
                 media = main_cursor.fetchall()
                 for m in media:
                     print(json.dumps(m, indent=4, default=str))
