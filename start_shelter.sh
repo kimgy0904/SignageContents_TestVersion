@@ -4,11 +4,20 @@ echo $PATH
 
 # Migrate shelter_server DB
 
+IP=$(ifconfig eth0 | awk '/inet/ { print $2 }')
+echo $IP
+
+PORT=":8000"
+
+DEST=${IP}${PORT}
+
 cd /root/LivingLab-ShelterServer/local_shelter_server
 
 sleep 3s
 
 python3 manage.py migrate # migrate database
+
+python3 manage.py runserver $DEST &
 
 #--------------------------
 
