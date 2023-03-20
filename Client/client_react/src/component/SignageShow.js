@@ -7,7 +7,15 @@ import ContentDetailView from "./ContentDetailView";
 function SignageShow({id,title,des}) {
     const [images, setImages] = useState(null);
     const [content, setContent] = useState(null);
+    const [ ip , setIp ] = useState();
     const backend_url = "http://127.0.0.1:8001"
+
+    useEffect( () => {
+        axios.get('https://geolocation-db.com/json/')
+        .then((res) => {
+          setIp(res.data.IPv4)
+        })
+    },[])
 
     useEffect(() => {
         const imagelist = () => {
@@ -38,6 +46,9 @@ function SignageShow({id,title,des}) {
     return (
 
         <html>
+        {/*br tag for screen matching control without css*/}
+        <br/>
+        <br/>
         <head>
             <title>Phantom by HTML5 UP</title>
             <meta charSet="utf-8"/>

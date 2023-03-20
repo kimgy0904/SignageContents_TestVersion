@@ -2,14 +2,28 @@ import axios from "axios"
 import '../style/main.css';
 import '../style/noscript.css';
 import '../style/mycss.css';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 function Community() {
     const backend_url = "http://127.0.0.1:8001"
+    const port = "8001"
+    const [ ip , setIp ] = useState();
+
+    useEffect( () => {
+        axios.get('https://geolocation-db.com/json/')
+        .then((res) => {
+          setIp(res.data.IPv4)
+        })
+
+        // console.log(ip);
+    },[])
 
     return(
         <html>
+        {/*br tag for screen matching control without css*/}
+        <br/>
+        <br/>
         <head>
             <meta charSet="UTF-8"/>
             <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
@@ -59,8 +73,10 @@ function Community() {
                         </div>
 
                         <p style={{textAlign: 'center'}}>
-                            <Link to = '/paintlist' className="w3-bar-item w3-button w3-padding-large" style={{color : 'black', textDecoration: 'none'}}>
-                                <strong>Drawing Guest Book</strong></Link>
+                            <a href = {'http://' + ip + ':' + port + '/Service/paintlist'} className="w3-bar-item w3-button w3-padding-large" style={{color : 'black', textDecoration: 'none'}}>
+                                <strong>Drawing Guest Book</strong></a>
+                            {/*<Link to = '/paintlist' className="w3-bar-item w3-button w3-padding-large" style={{color : 'black', textDecoration: 'none'}}>*/}
+                            {/*    <strong>Drawing Guest Book</strong></Link>*/}
 
                         </p>
 

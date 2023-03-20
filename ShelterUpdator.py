@@ -132,7 +132,7 @@ def GetShelter(s_id, exist):
 
         shelter = main_cursor.fetchall()
         for s in shelter:
-            print(json.dumps(s, indent=4, default=str))  # 딕셔너리, 키값으로 접근가능 record['id'], record['title']
+            # print(json.dumps(s, indent=4, default=str))  # 딕셔너리, 키값으로 접근가능 record['id'], record['title']
 
             values = (s['id'],
                       s['title'],
@@ -156,7 +156,7 @@ def GetShelter(s_id, exist):
 
             shelter_media = main_cursor.fetchall()
             for sm in shelter_media:
-                print(json.dumps(sm, indent=4, default=str))
+                # print(json.dumps(sm, indent=4, default=str))
 
                 values = (sm['id'],
                           sm['shelter_profile'],
@@ -203,7 +203,7 @@ def GetCommunity(s_id, exist):
     community = main_cursor.fetchall()
 
     for com in community:
-        print(json.dumps(com, indent=4, default=str))
+        # print(json.dumps(com, indent=4, default=str))
 
         values = (com['id'],
                   com['name'],
@@ -231,7 +231,7 @@ def GetCommunity(s_id, exist):
 
         dboard = main_cursor.fetchall()
         for db in dboard:
-            print(json.dumps(db, indent=4, default=str))
+            # print(json.dumps(db, indent=4, default=str))
 
             values = (db['id'],
                       db['name'],
@@ -264,7 +264,7 @@ def GetCommunity(s_id, exist):
 
             comment = main_cursor.fetchall()
             for c in comment:
-                print(json.dumps(c, indent=4, default=str))
+                # print(json.dumps(c, indent=4, default=str))
 
                 values = (c['id'],
                           c['text'],
@@ -292,7 +292,7 @@ def GetCommunity(s_id, exist):
 
                 media = main_cursor.fetchall()
                 for m in media:
-                    print(json.dumps(m, indent=4, default=str))
+                    # print(json.dumps(m, indent=4, default=str))
 
                     values = (m['id'],
                               m['image'],
@@ -313,7 +313,7 @@ def GetCommunity(s_id, exist):
 
         iboard = main_cursor.fetchall()
         for ib in iboard:
-            print(json.dumps(ib, indent=4, default=str))
+            # print(json.dumps(ib, indent=4, default=str))
 
             values = (ib['id'],
                       ib['name'],
@@ -346,7 +346,7 @@ def GetCommunity(s_id, exist):
 
             comment = main_cursor.fetchall()
             for c in comment:
-                print(json.dumps(c, indent=4, default=str))
+                # print(json.dumps(c, indent=4, default=str))
 
                 values = (c['id'],
                           c['text'],
@@ -373,7 +373,7 @@ def GetCommunity(s_id, exist):
                 main_cursor.execute("SELECT * FROM \"Management_comment_media\" WHERE \"commentFK\" = {cfk}".format(cfk=c['id']))
                 media = main_cursor.fetchall()
                 for m in media:
-                    print(json.dumps(m, indent=4, default=str))
+                    # print(json.dumps(m, indent=4, default=str))
 
                     values = (m['id'],
                               m['image'],
@@ -401,7 +401,7 @@ def GetAdvertisement(s_id, exist):
 
     advertisement = main_cursor.fetchall()
     for ad in advertisement:
-        print(json.dumps(ad, indent=4, default=str))
+        # print(json.dumps(ad, indent=4, default=str))
 
         values = (ad['id'],
                   ad['name'],
@@ -429,7 +429,7 @@ def GetAdvertisement(s_id, exist):
         main_cursor.execute("SELECT * FROM \"Management_advertisement_media\" WHERE \"advertisementFK\" = {id}".format(id=ad['id']))
         adv_media = main_cursor.fetchall()
         for adv in adv_media:
-            print(json.dumps(adv, indent=4, default=str))
+            # print(json.dumps(adv, indent=4, default=str))
 
             values = (adv['id'],
                       adv['content'],
@@ -453,7 +453,7 @@ def GetContent(s_id, exist):
 
     content = main_cursor.fetchall()
     for con in content:
-        print(json.dumps(con, indent=4, default=str))
+        # print(json.dumps(con, indent=4, default=str))
 
         values = (con['id'],
                   con['title'],
@@ -479,7 +479,7 @@ def GetContent(s_id, exist):
         main_cursor.execute("SELECT * FROM \"Management_content_description\" WHERE \"contentFK\" = {cfk}".format(cfk=con['id']))
         cont_media = main_cursor.fetchall()
         for cont in cont_media:
-            print(json.dumps(cont, indent=4, default=str))
+            # print(json.dumps(cont, indent=4, default=str))
 
             values = (cont['id'],
                       cont['upload_file'],

@@ -7,6 +7,8 @@ import IDLE_page_3 from "./component/IDLE_page_3";
 import IDLE_page_4 from "./component/IDLE_page_4";
 import IDLE_page_5 from "./component/IDLE_page_5";
 
+import axios from "axios";
+
 import ContentDetailView from "./component/ContentDetailView";
 import SignageShow from "./component/SignageShow";
 import Community from "./component/Community";
@@ -20,8 +22,9 @@ function App(){
     const Ref = useRef(null);
     const [text, setText] = useState('');
     const [timer, setTimer] = useState();
+    const [ ip , setIp ] = useState();
 
-    const idle_time = 600;
+    const idle_time = 30;
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
@@ -77,7 +80,8 @@ function App(){
 
     // 카운터 00:00 정보 받아온 뒤 IDLE 페이지 이동
     const navigate = useNavigate();
-    const Page = ['/', '/page4', '/page5'];
+    // const Page = ['/', '/page4', '/page5'];
+    const Page = ['/', '/page4'];
     const [num, setNum] = useState(0);
 
     const getRandomInt = (max) => {
@@ -90,24 +94,32 @@ function App(){
                 setNum(num_);
                 navigate(Page[num_]);
                 console.log('change page' + num_);
+
+                axios.get('https://geolocation-db.com/json/')
+                .then((res) => {
+                  setIp(res.data.IPv4);
+                })
             }
     }, [timer]);
+
+
 
     return(
         <div>
             <div onClick={TimerReset} style={{fontSize : '3rem'}}>
                 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
-                <div style={{backgroundColor : 'black', fontSize : '3rem',
-                    fontFamily: 'yg-jalnan', color : 'white'}}>
-                    {timer}
-                    <br/>
-                    {text}
-                </div>
+                {/*<div style={{backgroundColor : 'black', fontSize : '3rem',*/}
+                {/*    fontFamily: 'yg-jalnan', color : 'white'}}>*/}
+                {/*    {timer}*/}
+                {/*    <br/>*/}
+                {/*    {text}*/}
+                {/*</div>*/}
             <Routes>
                 <Route path='/' element={<IDLE_page_3/>}/>
                 <Route path='/page4' element={<IDLE_page_4/>}/>
-                <Route path='/page5' element={<IDLE_page_5/>} />
+                {/*page5 seems to be useless*/}
+                {/*<Route path='/page5' element={<IDLE_page_5/>} />*/}
                 <Route path='/select' element={<SignageShow/>} />
                 <Route path='/board' element={<Community/>} />
                 <Route path='/issueboard' element={<IssueBoard/>} />
