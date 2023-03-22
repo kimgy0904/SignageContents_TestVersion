@@ -8,7 +8,8 @@ import {Link} from "react-router-dom";
 function IssueBoard(){
     const [media, setMedia] = useState(null);
     const [comment, setComment] = useState(null);
-    const backend_url = "http://127.0.0.1:8001"
+    const local_ip = `${process.env.REACT_APP_IP}`;
+    const backend_url = "http://" + local_ip + ":8001";
 
     useEffect(() => {
         const Community_media_list = () => {
