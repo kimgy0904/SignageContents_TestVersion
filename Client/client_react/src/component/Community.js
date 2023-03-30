@@ -6,18 +6,9 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 function Community() {
-    const backend_url = "http://127.0.0.1:8001"
-    const port = "8001"
-    const [ ip , setIp ] = useState();
-
-    useEffect( () => {
-        axios.get('https://geolocation-db.com/json/')
-        .then((res) => {
-          setIp(res.data.IPv4)
-        })
-
-        // console.log(ip);
-    },[])
+    const host_ip = `${process.env.REACT_APP_IP}`;
+    const port = "8000";
+    const backend_url = "http://" + host_ip + ":" + port;
 
     return(
         <html>

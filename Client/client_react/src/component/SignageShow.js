@@ -7,15 +7,9 @@ import ContentDetailView from "./ContentDetailView";
 function SignageShow({id,title,des}) {
     const [images, setImages] = useState(null);
     const [content, setContent] = useState(null);
-    const [ ip , setIp ] = useState();
-    const backend_url = "http://127.0.0.1:8001"
-
-    useEffect( () => {
-        axios.get('https://geolocation-db.com/json/')
-        .then((res) => {
-          setIp(res.data.IPv4)
-        })
-    },[])
+    const host_ip = `${process.env.REACT_APP_IP}`;
+    const port = "8000";
+    const backend_url = "http://" + host_ip + ":" + port;
 
     useEffect(() => {
         const imagelist = () => {

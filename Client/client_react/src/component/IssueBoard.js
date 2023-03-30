@@ -9,7 +9,7 @@ function IssueBoard(){
     const [media, setMedia] = useState(null);
     const [comment, setComment] = useState(null);
     const local_ip = `${process.env.REACT_APP_IP}`;
-    const backend_url = "http://" + local_ip + ":8001";
+    const backend_url = "http://" + local_ip + ":8000";
 
     useEffect(() => {
         const Community_media_list = () => {
