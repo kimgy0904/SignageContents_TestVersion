@@ -17,7 +17,7 @@ def MediaDownload(fileDir): # 이거 코드 중복 수정. 조건문 왜 안되�
     # 하드코딩 요소로 추후 수정요망
     # serverIP = "203.250.33.53"
     serverIP = mainip
-    serverPort = 9022
+    serverPort = 9021
 
     clientID = "shelter"
     clientPW = "20121208"

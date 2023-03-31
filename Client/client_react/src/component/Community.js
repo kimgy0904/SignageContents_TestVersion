@@ -64,7 +64,7 @@ function Community() {
                         </div>
 
                         <p style={{textAlign: 'center'}}>
-                            <a href = {'http://' + ip + ':' + port + '/Service/paintlist'} className="w3-bar-item w3-button w3-padding-large" style={{color : 'black', textDecoration: 'none'}}>
+                            <a href = {'http://' + host_ip + ':' + port + '/Service/paintlist'} className="w3-bar-item w3-button w3-padding-large" style={{color : 'black', textDecoration: 'none'}}>
                                 <strong>Drawing Guest Book</strong></a>
                             {/*<Link to = '/paintlist' className="w3-bar-item w3-button w3-padding-large" style={{color : 'black', textDecoration: 'none'}}>*/}
                             {/*    <strong>Drawing Guest Book</strong></Link>*/}
