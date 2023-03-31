@@ -54,7 +54,7 @@ function IssueBoard(){
         <div className="w3-top">
             <div className="w3-bar w3-black w3-card">
                 <Link to='/select' className="w3-bar-item w3-button w3-padding-large" style={{color : 'white', textDecoration: 'none'}}>GALLERY</Link>
-                <Link to='/community' className="w3-bar-item w3-button w3-padding-large" style={{color : 'white', textDecoration: 'none'}}>COMMUNITY</Link>
+                <Link to='/board' className="w3-bar-item w3-button w3-padding-large" style={{color : 'white', textDecoration: 'none'}}>COMMUNITY</Link>
             </div>
         </div>
         <div className="nav_blank" style={{marginRight : "80px"}}></div>
