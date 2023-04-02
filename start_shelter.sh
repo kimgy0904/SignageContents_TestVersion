@@ -21,16 +21,6 @@ python3 manage.py runserver $DEST &
 
 #--------------------------
 
-# Start IDLE Page
-sleep 2s
-
-cd /root/LivingLab-CMS-IDLE/Client/client_react
-
-#npm start &
-/bin/bash -c "source $NVM_DIR/nvm.sh && nvm use --delete-prefix $NODE_VERSION && npm start &"
-
-#--------------------------
-
 # Start WiFi Page
 
 sleep 2s
@@ -38,7 +28,17 @@ sleep 2s
 cd /root/LivinglabWiFi
 
 # npm install and start
-/bin/bash -c "source $NVM_DIR/nvm.sh && nvm use --delete-prefix $NODE_VERSION && npm install && npm start &"
+/bin/bash -c "source $NVM_DIR/nvm.sh && nvm use --delete-prefix $NODE_VERSION && PORT=3001 npm start &"
+
+#--------------------------
+
+# Start IDLE Page
+sleep 2s
+
+cd /root/LivingLab-CMS-IDLE/Client/client_react
+
+#npm start &
+/bin/bash -c "source $NVM_DIR/nvm.sh && nvm use --delete-prefix $NODE_VERSION && npm start &"
 
 #--------------------------
 
