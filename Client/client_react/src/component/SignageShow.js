@@ -3,6 +3,7 @@ import '../style/sigdesign.css';
 import React, {useEffect, useState, useRef} from "react";
 import {Link} from "react-router-dom";
 import ContentDetailView from "./ContentDetailView";
+import styled from "styled-components";
 
 function SignageShow({id,title,des}) {
     const [images, setImages] = useState(null);
@@ -10,7 +11,7 @@ function SignageShow({id,title,des}) {
     const host_ip = `${process.env.REACT_APP_IP}`;
     const port = "8000";
     const backend_url = "http://" + host_ip + ":" + port;
-
+    
     useEffect(() => {
         const imagelist = () => {
             axios
@@ -75,21 +76,14 @@ function SignageShow({id,title,des}) {
 
     return (
         <html>
-        {/*br tag for screen matching control without css*/}
-        <br/>
-        <br/>
         <head>
             <title>Phantom by HTML5 UP</title>
             <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-            <link rel="stylesheet" href="assets/css/main.css"/>
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-            <noscript>
-                <link rel="stylesheet" href="assets/css/noscript.css"/>
-            </noscript>
         </head>
         <body>
-        <div id="wrap">
+        <div id="wrap" style={{height : '100000px'}}>
             <header id="headerArea">
             <div className="w3-top">
                 <div className="w3-bar w3-black w3-card">
@@ -98,55 +92,53 @@ function SignageShow({id,title,des}) {
             </div>
             </header>
 
-            <div class="section" style={{marginTop: '20px'}}>
+            <div class="section" style={top}>
                 <div className="nav_blank"></div>
-                <h3 style={{marginLeft: '30px'}}>이미지 콘텐츠</h3>
-                <div className="gray-line"></div>
-                <div className="container_media" style={{position: 'relative'}}>
+                <h3>이미지 콘텐츠</h3>
+                <div style={grayLine}></div>
+                <div style={container_media}>
                     {images && images.map((list, i) => (
                         <p key={i}>
                             {/*<a href="{% url 'contentDetailView' video.id %}">*/}
                                 <span className="media_content_box" style={{position: 'relative'}}>
-                                    <img class="media_preview"     
-                                    style={{height: "200px", width: "330px", objectFit : "cover"}} src={backend_url + list.upload_file}/>
-                                    <div class="imText2" style={{left : "40px", bottom : "-70px"}}>{ content && content[i].title}</div>
+                                    <img style={media_preview} src={backend_url + list.upload_file}/>
+                                    <div class="imText2" style={{left : "\
+                                    ", bottom : "-70px"}}>{ content && content[i].title}</div>
                                     <Link to='/contentDetailView' style={{color : 'white', textDecoration: 'none'}}>
-                                    <span className="shadow_box">
-                                        <div className="shadow"></div>
-                                    </span>
+                                    {/* <span>
+                                        <div style={shadow}></div>
+                                    </span> */}
                                     </Link>
                                 </span>
                             {/*</a>*/}
                         </p>
                     ))}
                 </div>
-                <div className="nav_blank2"></div>
 
-                <div className="section" style={{marginTop: '20px'}}>
+                <div className="nav_blank2"></div>
                     <div className="nav_blank"></div>
                     <h3 style={{marginLeft: '30px'}}>동영상 콘텐츠</h3>
-                    <div className="gray-line"></div>
-                    <div className="container_media" style={{position: 'relative'}}>
+                    <div style={grayLine}></div>
+                    <div style={container_media}>
                         {images && images.map((list, i) => (
                             <p key={i}>
                                 {/*<a href="{% url 'contentDetailView' video.id %}">*/}
                                 <span className="media_content_box" style={{position: 'relative'}}>
                                     <img className="media_preview" onClick={recivedData}
-                                         style={{height: "200px", width: "330px", objectFit: "cover"}}
+                                         style={media_preview}
                                          src={backend_url + list.upload_file}/>
                                     <div className="imText2"
                                          style={{left: "40px", bottom: "-70px"}}>{content && content[i].title}</div>
                                     <Link to='/mediaDetailView' style={{color : 'white', textDecoration: 'none'}}>
-                                    <span className="shadow_box">
-                                        <div className="shadow"></div>
-                                    </span>
+                                    {/* <span className="shadow_box">
+                                        <div className="shadow"></div> */}
+                                    {/* </span> */}
                                         </Link>
                                 </span>
                                 {/*</a>*/}
                             </p>
                         ))}
                     </div>
-                </div>
                 <div className="nav_blank2"></div>
                 <div class="gray-line"></div>
                 <div class="container_media" style={{position: 'relative'}}>
@@ -157,7 +149,6 @@ function SignageShow({id,title,des}) {
                     {/*        <img src = "/media/{{contentQR}}"/>*/}
                     {/*    </div>*/}
                     {/*</div>*/}
-
                     <div></div>
                 </div>
             </div>
@@ -167,4 +158,56 @@ function SignageShow({id,title,des}) {
         </html>
     )
 }
+
+const btn= {
+    height: '100px',
+    width: '100px',
+    backgroundColor: 'blue',
+    color: 'white',
+    padding: '10px 20px',
+    fontSize: '16px',
+    borderRadius: '4px'
+}
+
+const grayLine = {
+    width: '400rem',
+    height: '0.1rem',
+    backgroundColor: '#D4D4D4',
+    margin: '1rem 0px 3rem 0px'
+}
+
+const top = {
+    marginTop: '60px',
+}
+
+const container_media = {
+    display: 'grid',
+    gridTemplateColumns: '340px 340px 340px',
+    gridTemplateRows: '200px 200px 200px',
+    columnGap: '10px',
+    rowGap: '30px',
+    justifyContent: 'center',
+    marginLeft: '-20px',
+    height: '1200px'
+}
+
+const container_media1 = {
+    columnGap: '10px',
+    rowGap : '30px',
+    justifyContent: 'center',
+    marginRight: '20px'
+}
+
+const img = {
+    filter: 'brightness(1)'
+}
+
+const media_preview = {
+    overflow: 'hidden',
+    objectFit: 'cover',
+    width: '330px',
+    height: '200px',
+    borderRadius: '10px'
+}
+
 export default SignageShow;
