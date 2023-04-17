@@ -36,6 +36,8 @@ var/
 Advertisement/
 ShelterQR/
 Shelter_Profile/
+Contents/
+Community/
 
 node_modules/
 */node_modules/*
