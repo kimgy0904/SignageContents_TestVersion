@@ -1,5 +1,6 @@
 import axios from "axios"
-import React, {useEffect, useState} from "react";
+import '../style/sigdesign.css';
+import React, {useEffect, useState, useRef} from "react";
 import {Link} from "react-router-dom";
 import ContentDetailView from "./ContentDetailView";
 import styled from "styled-components";
@@ -22,7 +23,43 @@ function SignageShow({id,title,des}) {
                 .catch((err) => console.log(err));
         }
         imagelist();
-        }, []);
+        }, []);        
+    
+    let ws = useRef(null);
+    const addr = "ws://localhost:8765";
+    const [inputs, setInputs] = useState('ws://localhost:8765');
+    const [outputs, setOutputs] = useState([]);
+    const [socketConnected, setSocketConnected] = useState(false);
+
+    const recivedData = () => {
+        let data = {images};
+        ws.current.send(JSON.stringify(data.images[0]));
+        console.log(data.images[0]);
+        console.log("클릭?\n" + "id : " + data.images[0].id + "\nfile : " + data.images[0].upload_file);
+    }
+    const connectServer = () => {
+        setOutputs('connecting server...');
+        if(!ws.current){
+        ws.current = new WebSocket(addr);
+        ws.current.onopen = () => {
+            console.log("connected to " + addr);
+            setOutputs("connected to " + addr)
+            setSocketConnected(true);
+        };
+        ws.current.onclose = (error) => {
+            console.log("disconnect from " + addr);
+            setOutputs("disconnect from " + addr);
+            console.log(error);
+        };
+        ws.current.onerror = (error) => {
+            console.log("connection error " + addr);
+            setOutputs("connection error " + addr)
+            console.log(error);
+        };
+        };
+    };
+
+    useEffect(() => {connectServer()})
 
     useEffect(() => {
         const Content_detail_list = () => {
@@ -30,7 +67,7 @@ function SignageShow({id,title,des}) {
                 .get(backend_url + "/Service/Content/")
                 .then(res => {
                     setContent(res.data)
-                    console.log(res.data)
+                    // console.log(res.data)
                 })
                 .catch((err) => console.log(err));
         }
@@ -38,7 +75,6 @@ function SignageShow({id,title,des}) {
          }, []);
 
     return (
-
         <html>
         <head>
             <title>Phantom by HTML5 UP</title>
@@ -46,7 +82,6 @@ function SignageShow({id,title,des}) {
             <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
         </head>
-
         <body>
         <div id="wrap" style={{height : '100000px'}}>
             <header id="headerArea">
@@ -89,7 +124,8 @@ function SignageShow({id,title,des}) {
                             <p key={i}>
                                 {/*<a href="{% url 'contentDetailView' video.id %}">*/}
                                 <span className="media_content_box" style={{position: 'relative'}}>
-                                    <img style={media_preview}
+                                    <img className="media_preview" onClick={recivedData}
+                                         style={media_preview}
                                          src={backend_url + list.upload_file}/>
                                     <div className="imText2"
                                          style={{left: "40px", bottom: "-70px"}}>{content && content[i].title}</div>
