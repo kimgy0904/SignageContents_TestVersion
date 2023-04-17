@@ -6,6 +6,7 @@ import './App.css';
 import IDLE_page_3 from "./component/IDLE_page_3";
 import IDLE_page_4 from "./component/IDLE_page_4";
 import IDLE_page_5 from "./component/IDLE_page_5";
+import StyledComponentTest from "./component/StyledComponentTest";
 
 import axios from "axios";
 
@@ -127,6 +128,7 @@ function App(){
                 <Route path='/paintlist' element={<PaintList/>} />
                 <Route path='/contentDetailView' element={<ContentDetailView/>}/>
                 <Route path='/mediaDetailView' element={<MediaDetailView/>}/>
+                <Route path='/StyledComponentTest' element={<StyledComponentTest/>}/>
             </Routes>
             </div>
         </div>
