@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-native-linear-gradient": "^2.6.2",
+    "styled-components": "^4.4.1"
+  }
+}

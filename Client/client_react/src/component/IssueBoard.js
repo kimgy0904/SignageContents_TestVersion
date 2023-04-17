@@ -56,14 +56,14 @@ function IssueBoard(){
                 <Link to='/board' className="w3-bar-item w3-button w3-padding-large" style={{color : 'white', textDecoration: 'none'}}>COMMUNITY</Link>
             </div>
         </div>
-        <div className="nav_blank" style={{marginRight : "80px"}}></div>
-        <div className="container_media1">
+        {/* <div className="nav_blank" style={{marginRight : "80px"}}></div> */}
+        <div className="container_media1" style={container_issueBoard}>
             {media && media.map((list, i) => (
                 <p key={i}>
                     <p style={{height:"20px"}}></p>
                     <span className="media_content_box" style={{position: 'relative'}}>
-                <img style={{height: "200px", width: "400px", objectFit: "cover", marginLeft : "300px"}} src={backend_url + list.image}/>
-                    <p style={{height:"20px"}}></p>
+                <img style={issueBoard_preview} src={backend_url + list.image}/>
+                    {/* <p style={{height:"20px"}}></p> */}
                     <div>{ comment && comment[i].text}</div>
                     <h3>{ comment && comment[i].email}</h3>
                     <h4>{ comment && comment[i].createDate}</h4>
@@ -75,5 +75,21 @@ function IssueBoard(){
         </body>
         </html>
     );
+}
+const container_issueBoard = {
+    display: 'grid',
+    gridTemplateColumns: '340px 340px 340px',
+    gridTemplateRows: '400px 400px 400px',
+    columnGap: '10px',
+    rowGap: '30px',
+    justifyContent: 'center',
+    height: '2000px',
+}
+const issueBoard_preview = {
+    overflow: 'hidden',
+    objectFit: 'cover',
+    width: '330px',
+    height: '200px',
+    borderRadius: '10px'    
 }
 export default IssueBoard;
