@@ -120,7 +120,7 @@ function SignageShow({id,title,des}) {
                                 <span className="media_content_box" style={{position: 'relative'}}>
                                     <img className="media_preview" onClick={recivedData}
                                          style={media_preview}
-                                         src={backend_url + list.thumbnailPath}/>
+                                         src={backend_url + '/media/' + list.thumbnailPath}/>
                                     <div className="imText2"
                                          style={{left: "40px", bottom: "-70px"}}>{content && content[i].title}</div>
                                     <Link to='/mediaDetailView' style={{color : 'white', textDecoration: 'none'}}>
