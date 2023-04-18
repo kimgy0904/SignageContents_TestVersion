@@ -97,20 +97,15 @@ function SignageShow({id,title,des}) {
                 <h3>이미지 콘텐츠</h3>
                 <div style={grayLine}></div>
                 <div style={container_media}>
-                    {images && images.map((list, i) => (
+                    {images && images.map((list, i) => list.thumbnailPath ? null : (
                         <p key={i}>
-                            {/*<a href="{% url 'contentDetailView' video.id %}">*/}
                                 <span className="media_content_box" style={{position: 'relative'}}>
                                     <img style={media_preview} src={backend_url + list.upload_file}/>
                                     <div class="imText2" style={{left : "\
                                     ", bottom : "-70px"}}>{ content && content[i].title}</div>
                                     <Link to='/contentDetailView' style={{color : 'white', textDecoration: 'none'}}>
-                                    {/* <span>
-                                        <div style={shadow}></div>
-                                    </span> */}
                                     </Link>
                                 </span>
-                            {/*</a>*/}
                         </p>
                     ))}
                 </div>
@@ -120,24 +115,19 @@ function SignageShow({id,title,des}) {
                     <h3 style={{marginLeft: '30px'}}>동영상 콘텐츠</h3>
                     <div style={grayLine}></div>
                     <div style={container_media}>
-                        {images && images.map((list, i) => (
+                        {images && images.map((list, i) => list.thumbnailPath ? (
                             <p key={i}>
-                                {/*<a href="{% url 'contentDetailView' video.id %}">*/}
                                 <span className="media_content_box" style={{position: 'relative'}}>
                                     <img className="media_preview" onClick={recivedData}
                                          style={media_preview}
-                                         src={backend_url + list.upload_file}/>
+                                         src={backend_url + list.thumbnailPath}/>
                                     <div className="imText2"
                                          style={{left: "40px", bottom: "-70px"}}>{content && content[i].title}</div>
                                     <Link to='/mediaDetailView' style={{color : 'white', textDecoration: 'none'}}>
-                                    {/* <span className="shadow_box">
-                                        <div className="shadow"></div> */}
-                                    {/* </span> */}
                                         </Link>
                                 </span>
-                                {/*</a>*/}
                             </p>
-                        ))}
+                        ) : null )}
                     </div>
                 <div className="nav_blank2"></div>
                 <div class="gray-line"></div>
