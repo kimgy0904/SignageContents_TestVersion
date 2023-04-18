@@ -4,10 +4,12 @@ import React, {useEffect, useState, useRef} from "react";
 import {Link} from "react-router-dom";
 import ContentDetailView from "./ContentDetailView";
 import styled from "styled-components";
+import Modal from './Modal';
 
 function SignageShow({id,title,des}) {
     const [images, setImages] = useState(null);
     const [content, setContent] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
     const host_ip = `${process.env.REACT_APP_IP}`;
     const port = "8000";
     const backend_url = "http://" + host_ip + ":" + port;
@@ -31,7 +33,16 @@ function SignageShow({id,title,des}) {
     const [outputs, setOutputs] = useState([]);
     const [socketConnected, setSocketConnected] = useState(false);
 
+    const openModal = () => {
+	setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
     const recivedData = () => {
+	openModal()
         let data = {images};
         ws.current.send(JSON.stringify(data.images[0]));
         console.log(data.images[0]);
@@ -121,6 +132,9 @@ function SignageShow({id,title,des}) {
                                     <img className="media_preview" onClick={recivedData}
                                          style={media_preview}
                                          src={backend_url + '/media/' + list.thumbnailPath}/>
+				    <Modal open={modalOpen} close={closeModal} header={content && content[i].title}>
+				    Test
+				    </Modal>
                                     <div className="imText2"
                                          style={{left: "40px", bottom: "-70px"}}>{content && content[i].title}</div>
                                     <Link to='/mediaDetailView' style={{color : 'white', textDecoration: 'none'}}>
