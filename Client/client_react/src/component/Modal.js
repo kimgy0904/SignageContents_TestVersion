@@ -15,7 +15,7 @@ const Modal = (props) => {
             </button>
           </header>
 	  <video controls>
-	      <source src="/ftp/Contents/CID-1/Video/sample_video.mp4" type="video/mp4" />
+	      <source src={'/ftp' + videourl} type="video/mp4" />
 	  </video>
           <footer>
             <button className="close" onClick={close}>

@@ -132,7 +132,7 @@ function SignageShow({id,title,des}) {
                                     <img className="media_preview" onClick={recivedData}
                                          style={media_preview}
                                          src={backend_url + '/media/' + list.thumbnailPath}/>
-				    <Modal open={modalOpen} close={closeModal} header={content && content[i].title}>
+				    <Modal open={modalOpen} close={closeModal} videourl={list.upload_file.substring(6, list.upload_file.length)} header={content && content[i].title}>
 				    Test
 				    </Modal>
                                     <div className="imText2"
