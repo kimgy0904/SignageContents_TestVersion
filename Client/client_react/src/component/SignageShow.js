@@ -9,7 +9,6 @@ import Modal from './Modal';
 function SignageShow({id,title,des}) {
     const [images, setImages] = useState(null);
     const [content, setContent] = useState(null);
-    const [modalOpen, setModalOpen] = useState(false);
     const host_ip = `${process.env.REACT_APP_IP}`;
     const port = "8000";
     const backend_url = "http://" + host_ip + ":" + port;
@@ -33,16 +32,9 @@ function SignageShow({id,title,des}) {
     const [outputs, setOutputs] = useState([]);
     const [socketConnected, setSocketConnected] = useState(false);
 
-    const openModal = () => {
-	setModalOpen(true);
-    };
 
-    const closeModal = () => {
-        setModalOpen(false);
-    };
-
-    const recivedData = () => {
-	openModal()
+    const recivedData = (id) => {
+	openModal(id)
         let data = {images};
         ws.current.send(JSON.stringify(data.images[0]));
         console.log(data.images[0]);
@@ -84,6 +76,22 @@ function SignageShow({id,title,des}) {
         }
         Content_detail_list();
          }, []);
+
+    const [modals, setModals] = useState([]);
+
+    const openModal = (id) => {
+	console.log("openModal");
+	const newModalId = Date.now().toString();
+	console.log("newModalId created.");
+	console.log(newModalId);
+	setModals([...modals, id]);
+    };
+
+    const closeModal = (modalId) => {
+	console.log("closeModal");
+	console.log(modalId);
+        setModals(modals.filter((id) => id !== modalId));
+    };
 
     return (
         <html>
@@ -129,12 +137,13 @@ function SignageShow({id,title,des}) {
                         {images && images.map((list, i) => list.thumbnailPath ? (
                             <p key={i}>
                                 <span className="media_content_box" style={{position: 'relative'}}>
-                                    <img className="media_preview" onClick={recivedData}
+                                    <img className="media_preview" onClick={() => recivedData(list.id)}
                                          style={media_preview}
                                          src={backend_url + '/media/' + list.thumbnailPath}/>
-				    <Modal open={modalOpen} close={closeModal} videourl={list.upload_file.substring(6, list.upload_file.length)} header={content && content[i].title}>
-				    Test
-				    </Modal>
+					{ modals.map((modalId) => (
+					    <Modal modalId={list.id} open={modals.includes(list.id)} close={closeModal} videourl={list.upload_file.substring(6, list.upload_file.length)} header={content && content[i].title}>
+					    </Modal>
+					)) }
                                     <div className="imText2"
                                          style={{left: "40px", bottom: "-70px"}}>{content && content[i].title}</div>
                                     <Link to='/mediaDetailView' style={{color : 'white', textDecoration: 'none'}}>

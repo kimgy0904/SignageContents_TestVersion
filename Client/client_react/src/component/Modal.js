@@ -2,7 +2,7 @@ import React from 'react';
 import '../style/modal.css';
 
 const Modal = (props) => {
-  const { open, close, videourl, header } = props;
+  const { modalId, open, close, videourl, header } = props;
 
   return (
     <div className={open ? 'openModal modal' : 'modal'}>
@@ -10,7 +10,7 @@ const Modal = (props) => {
         <section>
           <header>
             {header}
-            <button className="close" onClick={close}>
+            <button className="close" onClick={() => close(modalId)}>
               &times;
             </button>
           </header>
@@ -18,7 +18,7 @@ const Modal = (props) => {
 	      <source src={'/ftp' + videourl} type="video/mp4" />
 	  </video>
           <footer>
-            <button className="close" onClick={close}>
+            <button className="close" onClick={() => close(modalId)}>
               닫기
             </button>
           </footer>
