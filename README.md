@@ -12,11 +12,9 @@
     - pymysql
     - pillow
     - tzdata
-
-# Install Websocket based IDLE page server dependencies
-RUN pip install schedule
-RUN pip install websockets
-RUN pip install tabulate
+    - schedule
+    - websockets
+    - tabulate
 - Node 16.17.0
 
 ## 빌드 및 실행
