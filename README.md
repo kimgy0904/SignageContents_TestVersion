@@ -1,21 +1,9 @@
 # LivingLab-CMS-IDLE
 
-## 패키지 종속성
+## 노드 환
 
-- Python 3.10
-  - 필요할 수 있는 패키지 목록 (진행 중 막히면 설치)
-    - django
-    - djangorestframework
-    - django-cors-headers
-    - psycopg2-binary
-    - django-tinymce
-    - pymysql
-    - pillow
-    - tzdata
-    - schedule
-    - websockets
-    - tabulate
 - Node 16.17.0
+  - https://kjchoi.co.kr/20
 
 ## 빌드 및 실행
 
