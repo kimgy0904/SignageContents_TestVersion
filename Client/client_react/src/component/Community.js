@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 function Community() {
     const host_ip = `${process.env.REACT_APP_IP}`;
     const port = "8000";
-    const backend_url = "http://" + host_ip + ":" + port;
+    const backend_url = "http://localhost:" + port;
 
     return(
         <html>
