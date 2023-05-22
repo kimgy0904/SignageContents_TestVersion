@@ -13,30 +13,10 @@ import {Link} from "react-router-dom";
 
 
 function ContentDetailView() {
-    // const {id} = useParams();
-    // // let showContent = images.find(function ())
-    // const [images, setImages] = useState(null);
-    // const backend_url = "http://203.250.33.53:8000"
-    //
-    //
-    // useEffect(() => {
-    //     const imagelist = () => {
-    //         axios
-    //             .get(backend_url + "/Service/signage/")
-    //             .then(res => {
-    //                 setImages(res.data)
-    //                 console.log(res.data)
-    //             })
-    //             .catch((err) => console.log(err));
-    //     }
-    //     imagelist();
-    // }, []);
-
     return(
         <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css"/>
         </head>
 
         <body>

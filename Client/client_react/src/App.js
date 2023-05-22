@@ -2,7 +2,7 @@ import React, {useRef, useState, useEffect} from "react";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './App.css';
+import './component/App.css';
 import IDLE_page_3 from "./component/IDLE_page_3";
 import IDLE_page_4 from "./component/IDLE_page_4";
 import IDLE_page_5 from "./component/IDLE_page_5";

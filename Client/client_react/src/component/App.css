@@ -1,0 +1,57 @@
+/*html{*/
+/*    background-color: white;*/
+/*}*/
+html{
+    background-color: black;
+    margin: 1rem;
+}
+
+h1{
+    color: white;
+    font-size: 10rem;
+}
+
+h2, h3{
+    color: white;
+    font-size: 7rem;
+}
+
+p{
+    color: white;
+    font-size: 5rem;
+}
+
+.description{
+    color: white;
+}
+
+.Title{
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+
+.APP, APP2{
+    margin: 0 auto;
+    display: flex;
+    gap: .5rem;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    background-color: black;
+}
+
+.video{
+    margin: 0 auto;
+    position: center;
+    color: white;
+}
+
+.BigCarousel {
+  margin: 20px 0;
+}
+
+
+/*.Slider{*/
+/*    margin: 3rem;*/
+/*}*/
