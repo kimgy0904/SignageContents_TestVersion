@@ -126,7 +126,7 @@ function App(){
                 <Route path='/issueboard' element={<IssueBoard/>} />
                 <Route path='/dailyboard' element={<DailyBoard/>} />
                 <Route path='/paintlist' element={<PaintList/>} />
-                <Route path='/contentDetailView' element={<ContentDetailView/>}/>
+                <Route path='/contentDetailView/:id' element={<ContentDetailView/>}/>
                 <Route path='/mediaDetailView' element={<MediaDetailView/>}/>
                 <Route path='/StyledComponentTest' element={<StyledComponentTest/>}/>
             </Routes>

@@ -1,7 +1,7 @@
 import axios from "axios"
 import '../style/sigdesign.css';
 import React, {useEffect, useState, useRef} from "react";
-import {Link} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import ContentDetailView from "./ContentDetailView";
 import styled from "styled-components";
 import Modal from './Modal';
