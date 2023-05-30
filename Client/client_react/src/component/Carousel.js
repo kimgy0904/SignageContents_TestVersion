@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import axios from "axios";
 import {Link} from "react-router-dom";
 import ContentDetailView from "./ContentDetailView";
+import Modal from "./Modal";
 
 function Gallery({id,title,des}) {
   const [images, setImages] = useState(null);
@@ -106,21 +107,28 @@ function Gallery({id,title,des}) {
       slidesToScroll: 1,
   }
 
+
   return (
     <div>
-      {/*<h2>인기순</h2>*/}
       <Carousel {...settings} ref={carouselRef}>
         {images && images.map((list, i) => list.thumbnailPath ? null :(
-          <div key={i}>
-            <img src={backend_url + list.upload_file} style={{ width: '100%', height: 'auto', maxWidth: '1000px' }} alt="" />
-          {/*<div className="imText2">{content && content[i].title}</div>*/}
-                <Link to='./ContentDetailView' style={{color: 'white', textDecoration: 'none'}}>
-                </Link>
-          </div>
+
+
+
+          <div key={i} onClick={() => window.location.replace('/ContentDetailView/' + `${list.id}`)}>
+                <img src={backend_url + list.upload_file} style={{ width: '100%', height: 'auto', maxWidth: '1000px' }} alt=""/>
+            </div>
+
         ))}
       </Carousel>
-    </div>
+      {modals.map((modalId) => (
+        <Modal key={modalId} closeModal={closeModal} />
+    ))}
+      </div>
   );
 };
 
 export default Gallery;
+
+// <Link to={'/ContentDetailView/' + `${list.id}`} style={{color: 'white', textDecoration: 'none'}}>
+// </Link>

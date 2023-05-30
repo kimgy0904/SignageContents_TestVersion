@@ -1,12 +1,13 @@
-import axios from "axios"
+//import axios from "axios"
 import '../style/sigdesign.css';
 import React, {useEffect, useState, useRef} from "react";
-import {Link, Route, Routes} from "react-router-dom";
-import ContentDetailView from "./ContentDetailView";
-import styled from "styled-components";
+//import {Link, Route, Routes} from "react-router-dom";
+//import ContentDetailView from "./ContentDetailView";
+//import styled from "styled-components";
 import Modal from './Modal';
 import StoreImgList from "./StoreImgList";
 import Gallery from "./Carousel";
+import * as url from "url";
 
 function Title(){
   return<header>
@@ -16,7 +17,7 @@ function Title(){
 
 function SignageShow() {
     return (
-        <html>
+        <div>
         <head>
             <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
@@ -24,7 +25,7 @@ function SignageShow() {
         <header>
             <Title></Title>
         </header>
-        <body>
+        <div className='body'>
         <div>
             <h3>인기순</h3>
             <Gallery>
@@ -40,8 +41,8 @@ function SignageShow() {
             </div>
         </div>
         <script type="text/javascript"></script>
-        </body>
-        </html>
+        </div>
+        </div>
     )
 }
 

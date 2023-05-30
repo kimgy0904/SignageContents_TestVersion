@@ -2,6 +2,7 @@
 /*    background-color: white;*/
 /*}*/
 html{
+    /*background-image: url("../style/back.png");*/
     background-color: black;
     margin: 1rem;
 }
