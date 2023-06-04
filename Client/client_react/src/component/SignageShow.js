@@ -1,5 +1,5 @@
 //import axios from "axios"
-import '../style/sigdesign.css';
+import './App.module.css';
 import React, {useEffect, useState, useRef} from "react";
 //import {Link, Route, Routes} from "react-router-dom";
 //import ContentDetailView from "./ContentDetailView";
